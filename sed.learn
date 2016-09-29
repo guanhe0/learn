@@ -1,0 +1,5 @@
+1 删除匹配行
+sed -i "/expr/d" file
+2 替换某个字符串
+sed "s/src/dest/g" file
+
