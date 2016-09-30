@@ -2,4 +2,19 @@
 sed -i "/expr/d" file
 2 替换某个字符串
 sed "s/src/dest/g" file
+3 在指定行添加内容
+sed -e 4a\newLine testfile
+4 将文件内容带行号输出，并删除指定多行
+nl file | sed '2,5d'
+5 只要删除第 2 行
+nl /etc/passwd | sed '2d'
+6 要删除第 3 到最后一行
+nl /etc/passwd | sed '3,$d'
+那如果是要在第二行前
+nl /etc/passwd | sed '2i drink tea'
+7 将第2-5行的内容取代成为『No 2-5 number』呢
+nl /etc/passwd | sed '2,5c No 2-5 number'
+8 搜索 file 有root关键字的行,使用-n的时候将只打印包含模板的行。
+nl file | sed '/root/p' -n
+9 
 
