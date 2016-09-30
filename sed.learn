@@ -16,5 +16,5 @@ nl /etc/passwd | sed '2i drink tea'
 nl /etc/passwd | sed '2,5c No 2-5 number'
 8 搜索 file 有root关键字的行,使用-n的时候将只打印包含模板的行。
 nl file | sed '/root/p' -n
-9 
+9(add new line to the workspace from the local) 
 
