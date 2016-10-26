@@ -1,0 +1,122 @@
+#!/bin/bash
+TOP_DIR=$(cd "`dirname $0`" ; pwd)
+export PATH=$PATH:$TOP_DIR
+
+OPENLAB_TOPDIR=/usr/local/openlab
+OPENLAB_CONF_DIR=$OPENLAB_TOPDIR/openlab_conf
+
+USER="`whoami`"
+
+#############################################################################
+# Global Variable
+#############################################################################
+BOARD_NO=
+SERIAL=
+BOARD_INDEX=
+
+#############################################################################
+# Include
+#############################################################################
+. $OPENLAB_TOPDIR/Include/common.sh
+. $OPENLAB_TOPDIR/Include/userop.sh
+. $OPENLAB_TOPDIR/Include/boardop.sh
+. $OPENLAB_TOPDIR/Include/telnetop.sh
+. $OPENLAB_TOPDIR/Include/bmcop.sh
+. $OPENLAB_TOPDIR/Include/board_serial_op.sh
+
+#############################################################################
+# Usage
+#############################################################################
+Usage()
+{
+    echo "Usage: board_connect [Num]"
+    echo "    -h     : Display this information"
+    echo "    Num    : To use the specified board assigned to user, Num is an interger board index which must be greater than 0, default to use No.1 board."
+	exit
+}
+
+#############################################################################
+# Check if user is in openlab user list
+#############################################################################
+if !(get_user_info $USER >/dev/null); then
+	echo "You are not permited to use the board in OpenLab."
+	exit 1
+fi
+
+#############################################################################
+# Get BOARD_INDEX/BOARD_NO/SERIAL
+#############################################################################
+while test $# != 0
+do
+	case $1 in
+	--*=*)
+		ac_option=`expr "X$1" : 'X\([^=]*\)='`
+		ac_optarg=`expr "X$1" : 'X[^=]*=\(.*\)'`
+		ac_shift=:
+		;;
+	-*)
+		ac_option=$1
+		ac_optarg=$2
+		ac_shift=shift
+		;;
+	*)
+		ac_option=$1
+		ac_optarg=$1
+		ac_shift=:
+		;;
+	esac
+
+	case $ac_option in
+	"-h" | "--help")
+		Usage ; exit 0 ;;
+	[0-9]*)
+		BOARD_INDEX=$[$ac_optarg - 1] ;;
+	*)
+		echo -e "\033[31mUnknown option $ac_option!\033[0m" >&2
+		Usage ; exit 1 ;;
+	esac
+	
+	shift
+done
+
+#############################################################################
+# Get BOARD_NO
+#############################################################################
+if [ x"$BOARD_NO" = x"" ]; then
+	if [ x"$BOARD_INDEX" != x"" ]; then
+		user_boards=($(get_user_boards $USER))
+		if [ $BOARD_INDEX -lt 0 ] || [ $BOARD_INDEX -ge ${#user_boards[@]} ]; then
+			echo -e "\033[31mInvalid board index! Please use board_list to get your board info!\033[0m" >&2 ; exit 1
+		fi
+		BOARD_NO=${user_boards[$BOARD_INDEX]}
+	else
+		user_boards=($(get_user_boards $USER))
+		BOARD_NO=${user_boards[0]}
+	fi
+fi
+
+#############################################################################
+# Check if board is deployed or being used 
+#############################################################################
+if !(get_board_info $BOARD_NO >/dev/null); then
+	echo -e "\033[31mCan't find board info! Please touch Lab admin to get more help!\033[0m" ; exit 0
+fi
+
+if !(board_deploy_chk $BOARD_NO); then
+	exit 1
+fi
+
+if !(board_using_chk $BOARD_NO connect); then
+	exit 1
+fi
+
+#############################################################################
+# Connect to Target Board
+#############################################################################
+board_file_copy $BOARD_NO
+
+board_connect_cmd=$(get_board_connect_cmd $BOARD_NO)
+board_type=$(get_board_type $BOARD_NO)
+echo -e "\033[32mConnected to board: No=$BOARD_NO, type=$board_type.\033[0m"
+exec $board_connect_cmd
+
