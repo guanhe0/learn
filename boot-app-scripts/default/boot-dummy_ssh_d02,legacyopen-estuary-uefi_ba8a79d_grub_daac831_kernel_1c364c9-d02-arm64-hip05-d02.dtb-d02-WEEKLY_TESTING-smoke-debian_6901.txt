@@ -1,0 +1,1919 @@
+User root
+Port 22
+PasswordAuthentication no
+StrictHostKeyChecking no
+IdentityFile /var/lib/lava/dispatcher/tmp/tmpjgQFwm/192.168.3.192_key
+ 
+ 
+ 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+7a:7c:7b:63:55:58:45:66:68:19:8a:ba:b1:1b:c5:6d.
+Please contact your system administrator.
+Add correct host key in /root/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /root/.ssh/known_hosts:14
+  remove with: ssh-keygen -f "/root/.ssh/known_hosts" -R 192.168.3.192
+Keyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Thu Nov 10 09:39:51 2016 from 192.168.3.100
+eroot@debian:~# 
+root@debian:~# export PS1="linaro-test [rc=$(echo \$?)]# "
+linaro-test [rc=0]# 
+ 
+mount
+/dev/sda2 on / type ext4 (rw,relatime,data=ordered)
+devtmpfs on /dev type devtmpfs (rw,relatime,size=4013736k,nr_inodes=1003434,mode=755)
+sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)
+proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)
+securityfs on /sys/kernel/security type securityfs (rw,nosuid,nodev,noexec,relatime)
+tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)
+devpts on /dev/pts type devpts (rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=000)
+tmpfs on /run type tmpfs (rw,nosuid,nodev,mode=755)
+tmpfs on /run/lock type tmpfs (rw,nosuid,nodev,noexec,relatime,size=5120k)
+tmpfs on /sys/fs/cgroup type tmpfs (ro,nosuid,nodev,noexec,mode=755)
+cgroup on /sys/fs/cgroup/systemd type cgroup (rw,nosuid,nodev,noexec,relatime,xattr,release_agent=/lib/systemd/systemd-cgroups-agent,name=systemd)
+pstore on /sys/fs/pstore type pstore (rw,nosuid,nodev,noexec,relatime)
+cgroup on /sys/fs/cgroup/cpuset type cgroup (rw,nosuid,nodev,noexec,relatime,cpuset)
+cgroup on /sys/fs/cgroup/cpu,cpuacct type cgroup (rw,nosuid,nodev,noexec,relatime,cpu,cpuacct)
+cgroup on /sys/fs/cgroup/blkio type cgroup (rw,nosuid,nodev,noexec,relatime,blkio)
+cgroup on /sys/fs/cgroup/memory type cgroup (rw,nosuid,nodev,noexec,relatime,memory)
+cgroup on /sys/fs/cgroup/devices type cgroup (rw,nosuid,nodev,noexec,relatime,devices)
+cgroup on /sys/fs/cgroup/freezer type cgroup (rw,nosuid,nodev,noexec,relatime,freezer)
+cgroup on /sys/fs/cgroup/net_cls,net_prio type cgroup (rw,nosuid,nodev,noexec,relatime,net_cls,net_prio)
+cgroup on /sys/fs/cgroup/perf_event type cgroup (rw,nosuid,nodev,noexec,relatime,perf_event)
+cgroup on /sys/fs/cgroup/hugetlb type cgroup (rw,nosuid,nodev,noexec,relatime,hugetlb)
+cgroup on /sys/fs/cgroup/pids type cgroup (rw,nosuid,nodev,noexec,relatime,pids)
+systemd-1 on /proc/sys/fs/binfmt_misc type autofs (rw,relatime,fd=23,pgrp=1,timeout=300,minproto=5,maxproto=5,direct)
+mqueue on /dev/mqueue type mqueue (rw,relatime)
+debugfs on /sys/kernel/debug type debugfs (rw,relatime)
+hugetlbfs on /dev/hugepages type hugetlbfs (rw,relatime)
+rpc_pipefs on /run/rpc_pipefs type rpc_pipefs (rw,relatime)
+ 
+df
+Filesystem     1K-blocks    Used Available Use% Mounted on
+/dev/root       47929224 3663736  41807736   9% /
+devtmpfs         4013736       0   4013736   0% /dev
+tmpfs            4079900       0   4079900   0% /dev/shm
+tmpfs            4079900    8468   4071432   1% /run
+tmpfs               5120       0      5120   0% /run/lock
+tmpfs            4079900       0   4079900   0% /sys/fs/cgroup
+ 
+ls /
+bin   dev  home		    lib		media  opt   root  sbin  sys  usr
+boot  etc  lava-d02_02_ssh  lost+found	mnt    proc  run   srv	 tmp  var
+ 
+ip addr
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 00:18:82:05:00:af brd ff:ff:ff:ff:ff:ff
+    inet 192.168.3.192/24 brd 192.168.3.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::218:82ff:fe05:af/64 scope link 
+       valid_lft forever preferred_lft forever
+3: eth4: <BROADCAST,MULTICAST> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether 00:18:82:04:00:af brd ff:ff:ff:ff:ff:ff
+4: eth6: <BROADCAST,MULTICAST> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether 00:18:82:00:00:af brd ff:ff:ff:ff:ff:ff
+5: eth7: <BROADCAST,MULTICAST> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether 00:18:82:01:00:af brd ff:ff:ff:ff:ff:ff
+ 
+test -e /proc/net/pnp
+ 
+test -s /etc/resolv.conf
+ 
+/lava-d02_02_ssh/bin/lava-test-runner /lava-d02_02_ssh
+/lava-d02_02_ssh
+<LAVA_TEST_RUNNER>: started
+<LAVA_TEST_RUNNER>: looking for work in /lava-d02_02_ssh/lava-test-runner.conf-1478742407
+<LAVA_TEST_RUNNER>: running 0_e77b3eb6-b794-4f61-8b14-ade5ae057a41 under lava-test-shell...
+<LAVA_TEST_RUNNER>: save hardware/software context info for 0_e77b3eb6-b794-4f61-8b14-ade5ae057a41...
+<LAVA_SIGNAL_STARTRUN smoke_testing e77b3eb6-b794-4f61-8b14-ade5ae057a41>
+ 
+echo LAVA_ACK
+<LAVA_SIGNAL_STARTTC linux-linaro-pwd>
+ 
+echo LAVA_ACK
+/lava-d02_02_ssh/tests/0_e77b3eb6-b794-4f61-8b14-ade5ae057a41
+<LAVA_SIGNAL_ENDTC linux-linaro-pwd>
+ 
+echo LAVA_ACK
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=linux-linaro-pwd RESULT=pass>
+<LAVA_SIGNAL_STARTTC linux-linaro-uname>
+ 
+ 
+echo LAVA_ACK
+Linux debian 4.4.11 #1 SMP Thu Nov 10 01:33:57 CST 2016 aarch64 GNU/Linux
+<LAVA_SIGNAL_ENDTC linux-linaro-uname>
+echo LAVA_ACK
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=linux-linaro-uname RESULT=pass>
+<LAVA_SIGNAL_STARTTC linux-linaro-vmstat>
+ 
+ 
+ 
+echo LAVA_ACK
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+0  2      0 7568296   7752 188668    0    0     6    28    9    7  0  0 100  0  0
+<LAVA_SIGNAL_ENDTC linux-linaro-vmstat>
+echo LAVA_ACK
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=linux-linaro-vmstat RESULT=pass>
+<LAVA_SIGNAL_STARTTC linux-linaro-ipaddr>
+echo LAVA_ACK
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1
+link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+inet 127.0.0.1/8 scope host lo
+valid_lft forever preferred_lft forever
+inet6 ::1/128 scope host
+valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+link/ether 00:18:82:05:00:af brd ff:ff:ff:ff:ff:ff
+inet 192.168.3.192/24 brd 192.168.3.255 scope global eth0
+valid_lft forever preferred_lft forever
+inet6 fe80::218:82ff:fe05:af/64 scope link
+valid_lft forever preferred_lft forever
+3: eth4: <BROADCAST,MULTICAST> mtu 1500 qdisc mq state DOWN group default qlen 1000
+link/ether 00:18:82:04:00:af brd ff:ff:ff:ff:ff:ff
+4: eth6: <BROADCAST,MULTICAST> mtu 1500 qdisc mq state DOWN group default qlen 1000
+link/ether 00:18:82:00:00:af brd ff:ff:ff:ff:ff:ff
+5: eth7: <BROADCAST,MULTICAST> mtu 1500 qdisc mq state DOWN group default qlen 1000
+link/ether 00:18:82:01:00:af brd ff:ff:ff:ff:ff:ff
+<LAVA_SIGNAL_ENDTC linux-linaro-ipaddr>
+ 
+ 
+ 
+ 
+echo LAVA_ACK
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=linux-linaro-ipaddr RESULT=pass>
+<LAVA_SIGNAL_STARTTC linux-linaro-lscpu>
+echo LAVA_ACK
+Architecture:          aarch64
+Byte Order:            Little Endian
+CPU(s):                16
+On-line CPU(s) list:   0-15
+Thread(s) per core:    1
+Core(s) per socket:    4
+Socket(s):             4
+NUMA node(s):          1
+L1d cache:             32K
+L1i cache:             48K
+L2 cache:              1024K
+NUMA node0 CPU(s):     0-15
+<LAVA_SIGNAL_ENDTC linux-linaro-lscpu>
+echo LAVA_ACK
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=linux-linaro-lscpu RESULT=pass>
+<LAVA_SIGNAL_STARTTC linux-linaro-lsb_release>
+echo LAVA_ACK
+ 
+ 
+ 
+ 
+ 
+No LSB modules are available.
+eDistributor ID:	Debian
+Description:	Debian GNU/Linux 8.6 (jessie)
+Release:	8.6
+Codename:	jessie
+<LAVA_SIGNAL_ENDTC linux-linaro-lsb_release>
+cho LAVA_ACK
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=linux-linaro-lsb_release RESULT=pass>
+<LAVA_SIGNAL_STARTTC linux-linaro-etc-issue>
+echo LAVA_ACK
+Debian GNU/Linux 8 n l
+<LAVA_SIGNAL_ENDTC linux-linaro-etc-issue>
+echo LAVA_ACK
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=linux-linaro-etc-issue RESULT=pass>
+<LAVA_SIGNAL_STARTTC linux-linaro-cpuinfo>
+echo LAVA_ACK
+processor	: 0
+BogoMIPS	: 100.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x1
+CPU part	: 0xd07
+CPU revision	: 1
+processor	: 1
+BogoMIPS	: 100.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x1
+CPU part	: 0xd07
+CPU revision	: 1
+processor	: 2
+BogoMIPS	: 100.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x1
+CPU part	: 0xd07
+CPU revision	: 1
+processor	: 3
+BogoMIPS	: 100.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x1
+CPU part	: 0xd07
+CPU revision	: 1
+processor	: 4
+BogoMIPS	: 100.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x1
+CPU part	: 0xd07
+CPU revision	: 1
+processor	: 5
+BogoMIPS	: 100.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x1
+CPU part	: 0xd07
+CPU revision	: 1
+processor	: 6
+BogoMIPS	: 100.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x1
+CPU part	: 0xd07
+CPU revision	: 1
+processor	: 7
+BogoMIPS	: 100.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32
+CPU implementer	: 0x41
+ 
+ 
+ 
+ 
+ 
+ 
+hitecture: 8
+CPU variant	: 0x1
+CPU part	: 0xd07
+CPU revision	: 1
+processor	: 8
+BogoMIPS	: 100.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x1
+CPU part	: 0xd07
+CPU revision	: 1
+processor	: 9
+BogoMIPS	: 100.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x1
+CPU part	: 0xd07
+CPU revision	: 1
+processor	: 10
+BogoMIPS	: 100.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x1
+CPU part	: 0xd07
+CPU revision	: 1
+processor	: 11
+BogoMIPS	: 100.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x1
+CPU part	: 0xd07
+CPU revision	: 1
+processor	: 12
+BogoMIPS	: 100.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x1
+CPU part	: 0xd07
+CPU revision	: 1
+processor	: 13
+BogoMIPS	: 100.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x1
+CPU part	: 0xd07
+CPU revision	: 1
+processor	: 14
+BogoMIPS	: 100.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x1
+CPU part	: 0xd07
+CPU revision	: 1
+processor	: 15
+BogoMIPS	: 100.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x1
+CPU part	: 0xd07
+CPU revision	: 1
+<LAVA_SIGNAL_ENDTC linux-linaro-cpuinfo>
+echo LAVA_ACK
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=linux-linaro-cpuinfo RESULT=pass>
+<LAVA_SIGNAL_STARTTC linux-linaro-meminfo>
+echo LAVA_ACK
+MemTotal:        8159800 kB
+MemFree:         7568416 kB
+MemAvailable:    7653128 kB
+Buffers:            7788 kB
+Cached:           188896 kB
+SwapCached:            0 kB
+Active:           130364 kB
+ 
+ 
+ 
+ve:          86296 kB
+Active(anon):      20076 kB
+Inactive(anon):     8384 kB
+Active(file):     110288 kB
+Inactive(file):    77912 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:                12 kB
+Writeback:             0 kB
+AnonPages:         20012 kB
+Mapped:            14564 kB
+Shmem:              8472 kB
+Slab:              44096 kB
+SReclaimable:      18268 kB
+SUnreclaim:        25828 kB
+KernelStack:        3424 kB
+PageTables:          708 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     4079900 kB
+Committed_AS:      63500 kB
+VmallocTotal:   258998208 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+AnonHugePages:         0 kB
+CmaTotal:         131072 kB
+CmaFree:          121320 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+<LAVA_SIGNAL_ENDTC linux-linaro-meminfo>
+echo LAVA_ACK
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=linux-linaro-meminfo RESULT=pass>
+<LAVA_SIGNAL_STARTTC linux-linaro-dmesg>
+echo LAVA_ACK
+[    0.000000] Booting Linux on physical CPU 0x20000
+[    0.000000] Initializing cgroup subsys cpuset
+[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Initializing cgroup subsys cpuacct
+[    0.000000] Linux version 4.4.11 (jenkins@LAVA) (gcc version 4.9.2 20140904 (prerelease) (crosstool-NG linaro-1.13.1-4.9-2014.09 - Linaro GCC 4.9-2014.09) ) #1 SMP Thu Nov 10 01:33:57 CST 2016
+[    0.000000] Boot CPU: AArch64 Processor [411fd071]
+[    0.000000] earlycon: Early serial console at MMIO32 0x80300000 (options '')
+[    0.000000] bootconsole [uart0] enabled
+[    0.000000] efi: Getting EFI parameters from FDT:
+[    0.000000] EFI v2.60 by EDK II
+[    0.000000] efi:  SMBIOS=0x7a710000  SMBIOS 3.0=0x7a6f0000  ACPI=0x7aba0000  ACPI 2.0=0x7aba0014
+ 
+ 
+ 
+0072400000
+[    0.000000] No NUMA configuration found
+[    0.000000] Faking a node at [mem 0x0000000000000000-0x00000011ffffffff]
+[    0.000000] NUMA: Adding memblock [0x0 - 0x68a4ffff] on node 0
+[    0.000000] NUMA: Adding memblock [0x68a50000 - 0x68a6ffff] on node 0
+[    0.000000] NUMA: Adding memblock [0x68a70000 - 0x68a7ffff] on node 0
+[    0.000000] NUMA: Adding memblock [0x68a80000 - 0x68a80fff] on node 0
+[    0.000000] NUMA: Adding memblock [0x68a81000 - 0x7a5fffff] on node 0
+[    0.000000] NUMA: Adding memblock [0x7a600000 - 0x7abbffff] on node 0
+[    0.000000] NUMA: Adding memblock [0x7abc0000 - 0x7abc3fff] on node 0
+[    0.000000] NUMA: Adding memblock [0x7abc4000 - 0x7abcbfff] on node 0
+[    0.000000] NUMA: Adding memblock [0x7abcc000 - 0x7fbaffff] on node 0
+[    0.000000] NUMA: Adding memblock [0x7fbb0000 - 0x7fbdffff] on node 0
+[    0.000000] NUMA: Adding memblock [0x7fbe0000 - 0x7fbfffff] on node 0
+[    0.000000] NUMA: Adding memblock [0x1080000000 - 0x11ffffffff] on node 0
+[    0.000000] Initmem setup node 0 [mem 0x00000000-0x11ffffffff]
+[    0.000000]   NODE_DATA [mem 0x11ffffb400-0x11ffffcfff]
+[    0.000000] Zone ranges:
+[    0.000000]   DMA      [mem 0x0000000000000000-0x00000000ffffffff]
+[    0.000000]   Normal   [mem 0x0000000100000000-0x00000011ffffffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000000000000-0x0000000068a4ffff]
+[    0.000000]   node   0: [mem 0x0000000068a50000-0x0000000068a6ffff]
+[    0.000000]   node   0: [mem 0x0000000068a70000-0x0000000068a7ffff]
+[    0.000000]   node   0: [mem 0x0000000068a80000-0x0000000068a80fff]
+[    0.000000]   node   0: [mem 0x0000000068a81000-0x000000007a5fffff]
+[    0.000000]   node   0: [mem 0x000000007a600000-0x000000007abbffff]
+[    0.000000]   node   0: [mem 0x000000007abc0000-0x000000007abc3fff]
+[    0.000000]   node   0: [mem 0x000000007abc4000-0x000000007abcbfff]
+[    0.000000]   node   0: [mem 0x000000007abcc000-0x000000007fbaffff]
+[    0.000000]   node   0: [mem 0x000000007fbb0000-0x000000007fbdffff]
+[    0.000000]   node   0: [mem 0x000000007fbe0000-0x000000007fbfffff]
+[    0.000000]   node   0: [mem 0x0000001080000000-0x00000011ffffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000000000000-0x00000011ffffffff]
+[    0.000000] On node 0 totalpages: 2096128
+[    0.000000]   DMA zone: 8176 pages used for memmap
+[    0.000000]   DMA zone: 0 pages reserved
+[    0.000000]   DMA zone: 523264 pages, LIFO batch:31
+[    0.000000]   Normal zone: 24576 pages used for memmap
+[    0.000000]   Normal zone: 1572864 pages, LIFO batch:31
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.0 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: MIGRATE_INFO_TYPE not supported.
+[    0.000000] PERCPU: Embedded 17 pages/cpu @ffffffd1ffea3000 s30208 r8192 d31232 u69632
+[    0.000000] pcpu-alloc: s30208 r8192 d31232 u69632 alloc=17*4096
+[    0.000000] pcpu-alloc: [0] 00 [0] 01 [0] 02 [0] 03 [0] 04 [0] 05 [0] 06 [0] 07
+[    0.000000] pcpu-alloc: [0] 08 [0] 09 [0] 10 [0] 11 [0] 12 [0] 13 [0] 14 [0] 15
+[    0.000000] Detected PIPT I-cache on CPU0
+[    0.000000] CPU features: enabling workaround for ARM erratum 832075
+[    0.000000] CPU features: enabling workaround for ARM erratum 834220
+[    0.000000] Built 1 zonelists in Node order, mobility grouping on.  Total pages: 2063376
+[    0.000000] Policy zone: Normal
+[    0.000000] Kernel command line: BOOT_IMAGE=/Image_D02 rdinit=/init root=PARTUUID=7caa54e2-023c-43ec-a0f5-6a346ac17539 rootwait rootfstype=ext4 rw console=ttyS0,115200 earlycon=uart8250,mmio32,0x80300000 ip=dhcp
+[    0.000000] log_buf_len individual max cpu contribution: 4096 bytes
+[    0.000000] log_buf_len total cpu_extra contributions: 61440 bytes
+[    0.000000] log_buf_len min size: 16384 bytes
+[    0.000000] log_buf_len: 131072 bytes
+[    0.000000] early log buf free: 11572(70%)
+[    0.000000] PID hash table entries: 4096 (order: 3, 32768 bytes)
+[    0.000000] software IO TLB [mem 0x7bbb0000-0x7fbb0000] (64MB) mapped at [ffffffc07bbb0000-ffffffc07fbaffff]
+[    0.000000] Memory: 8027476K/8384512K available (12040K kernel code, 1503K rwdata, 5424K rodata, 1180K init, 811K bss, 225964K reserved, 131072K cma-reserved)
+[    0.000000] Virtual kernel memory layout:
+vmalloc : 0xffffff8000000000 - 0xffffffbdbfff0000   (   246 GB)
+vmemmap : 0xffffffbdc0000000 - 0xffffffbfc0000000   (     8 GB maximum)
+0xffffffbdc0000000 - 0xffffffbe08000000   (  1152 MB actual)
+fixed   : 0xffffffbffa7fd000 - 0xffffffbffac00000   (  4108 KB)
+PCI I/O : 0xffffffbffae00000 - 0xffffffbffbe00000   (    16 MB)
+modules : 0xffffffbffc000000 - 0xffffffc000000000   (    64 MB)
+memory  : 0xffffffc000000000 - 0xffffffd200000000   ( 73728 MB)
+.init : 0xffffffc001190000 - 0xffffffc0012b7000   (  1180 KB)
+.text : 0xffffffc000080000 - 0xffffffc001190000   ( 17472 KB)
+.data : 0xffffffc0012d0000 - 0xffffffc001447c00   (  1503 KB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=16, Nodes=1
+[    0.000000] Hierarchical RCU implementation.
+[    0.000000] 	Build-time adjustment of leaf fanout to 64.
+[    0.000000] 	RCU restricting CPUs from NR_CPUS=64 to nr_cpu_ids=16.
+[    0.000000] RCU: Adjusting geometry for rcu_fanout_leaf=64, nr_cpu_ids=16
+[    0.000000] NR_IRQS:64 nr_irqs:64 0
+[    0.000000] GIC: Using split EOI/Deactivate mode
+[    0.000000] ITS@0x8c000000
+[    0.000000] ITS: allocated 65536 Devices @11f7900000 (psz 4K, shr 1)
+[    0.000000] ITS: allocated 512 Virtual CPUs @11f7893000 (psz 4K, shr 1)
+[    0.000000] ITS: allocated 512 Interrupt Collections @11f7894000 (psz 4K, shr 1)
+[    0.000000] ITS@0xa3000000
+[    0.000000] ITS: allocated 65536 Devices @11f7980000 (psz 4K, shr 1)
+[    0.000000] ITS: allocated 512 Virtual CPUs @11f7895000 (psz 4K, shr 1)
+[    0.000000] ITS: allocated 512 Interrupt Collections @11f7896000 (psz 4K, shr 1)
+[    0.000000] ITS@0xb7000000
+[    0.000000] ITS: allocated 65536 Devices @11f7a00000 (psz 4K, shr 1)
+[    0.000000] ITS: allocated 512 Virtual CPUs @11f7897000 (psz 4K, shr 1)
+[    0.000000] ITS: allocated 512 Interrupt Collections @11f7898000 (psz 4K, shr 1)
+[    0.000000] ITS@0xc6000000
+[    0.000000] ITS: allocated 65536 Devices @11f7a80000 (psz 4K, shr 1)
+[    0.000000] ITS: allocated 512 Virtual CPUs @11f7899000 (psz 4K, shr 1)
+[    0.000000] ITS: allocated 512 Interrupt Collections @11f789a000 (psz 4K, shr 1)
+[    0.000000] GIC: using LPI property table @0x00000011f78e0000
+[    0.000000] ITS: Allocated 1792 chunks for LPIs
+[    0.000000] CPU0: found redistributor 20000 region 0:0x000000008d100000
+[    0.000000] CPU0: using LPI pending table @0x00000011f78f0000
+[    0.000000] arch_timer: cp15 timer(s) running at 50.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0xb8812736b, max_idle_ns: 440795202655 ns
+[    0.000002] sched_clock: 56 bits at 50MHz, resolution 20ns, wraps every 4398046511100ns
+[    0.008050] Console: colour dummy device 80x25
+[    0.012489] Calibrating delay loop (skipped), value calculated using timer frequency.. 100.00 BogoMIPS (lpj=500000)
+[    0.022882] pid_max: default: 32768 minimum: 301
+[    0.027497] Security Framework initialized
+[    0.031573] Yama: becoming mindful.
+[    0.035051] AppArmor: AppArmor initialized
+[    0.040266] Dentry cache hash table entries: 1048576 (order: 11, 8388608 bytes)
+[    0.049600] Inode-cache hash table entries: 524288 (order: 10, 4194304 bytes)
+[    0.057471] Mount-cache hash table entries: 16384 (order: 5, 131072 bytes)
+[    0.064330] Mountpoint-cache hash table entries: 16384 (order: 5, 131072 bytes)
+[    0.071887] Initializing cgroup subsys io
+[    0.075882] Initializing cgroup subsys memory
+[    0.080224] Initializing cgroup subsys devices
+[    0.084644] Initializing cgroup subsys freezer
+[    0.089067] Initializing cgroup subsys net_cls
+[    0.093486] Initializing cgroup subsys perf_event
+[    0.098165] Initializing cgroup subsys net_prio
+[    0.102673] Initializing cgroup subsys hugetlb
+[    0.107093] Initializing cgroup subsys pids
+[    0.111265] ftrace: allocating 41206 entries in 161 pages
+[    0.196644] Remapping and enabling EFI services.
+[    0.201240]   EFI remap 0x0000000068a50000 => 0000000040000000
+[    0.207058]   EFI remap 0x000000007a600000 => 0000000040020000
+[    0.212867]   EFI remap 0x000000007a6e0000 => 0000000040060000
+[    0.218690]   EFI remap 0x000000007a770000 => 00000000400f0000
+[    0.224501]   EFI remap 0x000000007a7d0000 => 0000000040140000
+[    0.230313]   EFI remap 0x000000007a820000 => 0000000040190000
+[    0.236124]   EFI remap 0x000000007a870000 => 00000000401e0000
+[    0.241940]   EFI remap 0x000000007a8c0000 => 0000000040230000
+[    0.247768]   EFI remap 0x000000007a990000 => 0000000040300000
+[    0.253586]   EFI remap 0x000000007aa00000 => 0000000040370000
+[    0.259397]   EFI remap 0x000000007aa50000 => 00000000403c0000
+[    0.265212]   EFI remap 0x000000007aaa0000 => 0000000040410000
+[    0.271023]   EFI remap 0x000000007aaf0000 => 0000000040460000
+[    0.276836]   EFI remap 0x000000007ab40000 => 00000000404b0000
+[    0.282647]   EFI remap 0x000000007fbb0000 => 0000000040500000
+[    0.288455]   EFI remap 0x0000000080300000 => 0000000040530000
+[    0.294257]   EFI remap 0x00000000a00f0000 => 0000000040540000
+[    0.300061]   EFI remap 0x00000000a4000000 => 0000000040600000
+[    0.305862]   EFI remap 0x00000000a6000000 => 0000000041600000
+[    0.311676] ASID allocator initialised with 65536 entries
+[    0.317914] PCI/MSI: /interrupt-controller@8d000000/interrupt-controller@8c000000 domain created
+[    0.326662] PCI/MSI: /interrupt-controller@8d000000/interrupt-controller@a3000000 domain created
+[    0.335402] PCI/MSI: /interrupt-controller@8d000000/interrupt-controller@b7000000 domain created
+[    0.344144] PCI/MSI: /interrupt-controller@8d000000/interrupt-controller@c6000000 domain created
+[    0.352914] Platform MSI: /interrupt-controller@8d000000/interrupt-controller@8c000000 domain created
+[    0.362088] Platform MSI: /interrupt-controller@8d000000/interrupt-controller@a3000000 domain created
+[    0.371259] Platform MSI: /interrupt-controller@8d000000/interrupt-controller@b7000000 domain created
+[    0.380432] Platform MSI: /interrupt-controller@8d000000/interrupt-controller@c6000000 domain created
+[    0.431727] Detected PIPT I-cache on CPU1
+[    0.431738] CPU1: found redistributor 20001 region 0:0x000000008d130000
+[    0.431759] CPU1: using LPI pending table @0x00000011f6520000
+[    0.431816] CPU1: Booted secondary processor [411fd071]
+[    0.474839] Detected PIPT I-cache on CPU2
+[    0.474845] CPU2: found redistributor 20002 region 0:0x000000008d160000
+[    0.474866] CPU2: using LPI pending table @0x00000011f6570000
+[    0.474911] CPU2: Booted secondary processor [411fd071]
+[    0.517952] Detected PIPT I-cache on CPU3
+[    0.517959] CPU3: found redistributor 20003 region 0:0x000000008d190000
+[    0.517979] CPU3: using LPI pending table @0x00000011f65b0000
+[    0.518026] CPU3: Booted secondary processor [411fd071]
+[    0.561067] Detected PIPT I-cache on CPU4
+[    0.561076] CPU4: found redistributor 20100 region 0:0x000000008d1c0000
+[    0.561096] CPU4: using LPI pending table @0x00000011f65f0000
+[    0.561146] CPU4: Booted secondary processor [411fd071]
+[    0.604180] Detected PIPT I-cache on CPU5
+[    0.604187] CPU5: found redistributor 20101 region 0:0x000000008d1f0000
+[    0.604208] CPU5: using LPI pending table @0x00000011f6620000
+[    0.604254] CPU5: Booted secondary processor [411fd071]
+[    0.647293] Detected PIPT I-cache on CPU6
+[    0.647300] CPU6: found redistributor 20102 region 0:0x000000008d220000
+[    0.647320] CPU6: using LPI pending table @0x00000011f6670000
+[    0.647368] CPU6: Booted secondary processor [411fd071]
+[    0.690407] Detected PIPT I-cache on CPU7
+[    0.690413] CPU7: found redistributor 20103 region 0:0x000000008d250000
+[    0.690434] CPU7: using LPI pending table @0x00000011f66a0000
+[    0.690480] CPU7: Booted secondary processor [411fd071]
+[    0.733522] Detected PIPT I-cache on CPU8
+[    0.733531] CPU8: found redistributor 20200 region 0:0x000000008d280000
+[    0.733554] CPU8: using LPI pending table @0x00000011f66e0000
+[    0.733604] CPU8: Booted secondary processor [411fd071]
+[    0.776635] Detected PIPT I-cache on CPU9
+[    0.776641] CPU9: found redistributor 20201 region 0:0x000000008d2b0000
+[    0.776662] CPU9: using LPI pending table @0x00000011f6730000
+[    0.776709] CPU9: Booted secondary processor [411fd071]
+[    0.819748] Detected PIPT I-cache on CPU10
+[    0.819755] CPU10: found redistributor 20202 region 0:0x000000008d2e0000
+[    0.819776] CPU10: using LPI pending table @0x00000011f6760000
+[    0.819823] CPU10: Booted secondary processor [411fd071]
+[    0.862861] Detected PIPT I-cache on CPU11
+[    0.862868] CPU11: found redistributor 20203 region 0:0x000000008d310000
+[    0.862890] CPU11: using LPI pending table @0x00000011f6790000
+[    0.862937] CPU11: Booted secondary processor [411fd071]
+[    0.905976] Detected PIPT I-cache on CPU12
+[    0.905985] CPU12: found redistributor 20300 region 0:0x000000008d340000
+[    0.906007] CPU12: using LPI pending table @0x00000011f67e0000
+[    0.906056] CPU12: Booted secondary processor [411fd071]
+[    0.949088] Detected PIPT I-cache on CPU13
+[    0.949095] CPU13: found redistributor 20301 region 0:0x000000008d370000
+[    0.949115] CPU13: using LPI pending table @0x00000011f6010000
+[    0.949163] CPU13: Booted secondary processor [411fd071]
+[    0.992202] Detected PIPT I-cache on CPU14
+[    0.992209] CPU14: found redistributor 20302 region 0:0x000000008d3a0000
+[    0.992230] CPU14: using LPI pending table @0x00000011f6050000
+[    0.992278] CPU14: Booted secondary processor [411fd071]
+[    1.035315] Detected PIPT I-cache on CPU15
+[    1.035322] CPU15: found redistributor 20303 region 0:0x000000008d3d0000
+[    1.035344] CPU15: using LPI pending table @0x00000011f60a0000
+[    1.035392] CPU15: Booted secondary processor [411fd071]
+[    1.035419] Brought up 16 CPUs
+[    1.363903] SMP: Total of 16 processors activated.
+[    1.368668] CPU features: detected feature: GIC system register CPU interface
+[    1.375772] CPU: All CPU(s) started at EL2
+[    1.379870] alternatives: patching kernel code
+[    1.386520] devtmpfs: initialized
+[    1.390934] evm: security.selinux
+[    1.394229] evm: security.ima
+[    1.397182] evm: security.capability
+[    1.400891] SMBIOS 3.0.0 present.
+[    1.404297] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    1.415613] xor: measuring software checksum speed
+[    1.516326]    8regs     :  4610.800 MB/sec
+[    1.616344]    8regs_prefetch:  4294.400 MB/sec
+[    1.716362]    32regs    :  4452.800 MB/sec
+[    1.816380]    32regs_prefetch:  4147.600 MB/sec
+[    1.821048] xor: using function: 8regs (4610.800 MB/sec)
+[    1.826493] pinctrl core: initialized pinctrl subsystem
+[    1.832199] NET: Registered protocol family 16
+[    1.837282] vdso: 2 pages (1 code @ ffffffc0012d5000, 1 data @ ffffffc0012d4000)
+[    1.844758] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    1.851984] DMA: preallocated 256 KiB pool for atomic allocations
+[    1.858346] Serial: AMBA PL011 UART driver
+[    1.862856] Hisilicon MBIGEN-V1 8c030000.mbigen_pc_intc: Allocated 256 MSIs
+[    1.869996] Hisilicon MBIGEN-V1 b7030000.mbigen_pcie_intc: Allocated 640 MSIs
+[    1.877335] Hisilicon MBIGEN-V1 c6030000.mbigen_dsa_intc: Allocated 640 MSIs
+[    1.884545] Hisilicon MBIGEN-V1 a3030000.mbigen_m3_intc: Allocated 256 MSIs
+[    2.096469] raid6: int64x1  gen()  1095 MB/s
+[    2.266482] raid6: int64x1  xor()  1081 MB/s
+[    2.436539] raid6: int64x2  gen()  1504 MB/s
+[    2.606544] raid6: int64x2  xor()  1646 MB/s
+[    2.776572] raid6: int64x4  gen()  2206 MB/s
+[    2.946606] raid6: int64x4  xor()  1564 MB/s
+[    3.116633] raid6: int64x8  gen()  2375 MB/s
+[    3.286667] raid6: int64x8  xor()  1584 MB/s
+[    3.456704] raid6: neonx1   gen()  2233 MB/s
+[    3.626730] raid6: neonx1   xor()  1625 MB/s
+[    3.796760] raid6: neonx2   gen()  3039 MB/s
+[    3.966778] raid6: neonx2   xor()  2470 MB/s
+[    4.136820] raid6: neonx4   gen()  4419 MB/s
+[    4.306839] raid6: neonx4   xor()  3105 MB/s
+[    4.476875] raid6: neonx8   gen()  3863 MB/s
+[    4.646905] raid6: neonx8   xor()  3349 MB/s
+[    4.651150] raid6: using algorithm neonx4 gen() 4419 MB/s
+[    4.656519] raid6: .... xor() 3105 MB/s, rmw enabled
+[    4.661455] raid6: using intx1 recovery algorithm
+[    4.666229] ACPI: Interpreter disabled.
+[    4.670075] msm_bus_fabric_init_driver
+[    4.674200] vgaarb: loaded
+[    4.677088] SCSI subsystem initialized
+[    4.680899] libata version 3.00 loaded.
+[    4.681009] usbcore: registered new interface driver usbfs
+[    4.686484] usbcore: registered new interface driver hub
+[    4.691818] usbcore: registered new device driver usb
+[    4.697259] Advanced Linux Sound Architecture Driver Initialized.
+[    4.703675] NetLabel: Initializing
+[    4.707056] NetLabel:  domain hash size = 128
+[    4.711387] NetLabel:  protocols = UNLABELED CIPSOv4
+[    4.716341] NetLabel:  unlabeled traffic allowed by default
+[    4.722040] clocksource: Switched to clocksource arch_sys_counter
+[    4.747111] AppArmor: AppArmor Filesystem Enabled
+[    4.751915] pnp: PnP ACPI: disabled
+[    4.758270] NET: Registered protocol family 2
+[    4.762905] TCP established hash table entries: 65536 (order: 7, 524288 bytes)
+[    4.770327] TCP bind hash table entries: 65536 (order: 8, 1048576 bytes)
+[    4.777288] TCP: Hash tables configured (established 65536 bind 65536)
+[    4.783838] UDP hash table entries: 4096 (order: 5, 131072 bytes)
+[    4.789940] UDP-Lite hash table entries: 4096 (order: 5, 131072 bytes)
+[    4.796556] NET: Registered protocol family 1
+[    4.801023] RPC: Registered named UNIX socket transport module.
+[    4.806916] RPC: Registered udp transport module.
+[    4.811592] RPC: Registered tcp transport module.
+[    4.816273] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    4.822685] PCI: CLS 0 bytes, default 128
+[    4.822860] hw perfevents: enabled with armv8_cortex_a57 PMU driver, 7 counters available
+[    4.831134] kvm [1]: GICV base=0xfe020000, IRQ=1
+[    4.835790] kvm [1]: virtual timer IRQ4
+[    4.839620] kvm [1]: Hyp mode initialized successfully
+[    4.846228] futex hash table entries: 4096 (order: 7, 524288 bytes)
+[    4.852584] audit: initializing netlink subsys (disabled)
+[    4.857980] audit: type=2000 audit(4.470:1): initialized
+[    4.863442] Initialise system trusted keyring
+[    4.867935] HugeTLB registered 2 MB page size, pre-allocated 0 pages
+[    4.877377] VFS: Disk quotas dquot_6.6.0
+[    4.881342] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    4.889116] NFS: Registering the id_resolver key type
+[    4.894163] Key type id_resolver registered
+[    4.898330] Key type id_legacy registered
+[    4.902334] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+[    4.909161] Key type big_key registered
+[    4.914387] Key type asymmetric registered
+[    4.918472] Asymmetric key parser 'x509' registered
+[    4.923411] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 250)
+[    4.930823] io scheduler noop registered
+[    4.934731] io scheduler deadline registered
+[    4.939042] io scheduler cfq registered (default)
+[    4.944211] pci_hotplug: PCI Hot Plug PCI Core version: 0.5
+[    4.949763] pciehp: PCI Express Hot Plug Controller Driver version: 0.4
+[    4.958775] PCI host bridge /soc/pcie@b0080000 ranges:
+[    4.963896]   MEM 0x22008000000..0x2200ffeffff -> 0xb0000000
+[    4.969526]    IO 0x2200fff0000..0x2200fffffff -> 0x00000000
+[    4.975320] hisi-pcie b0080000.pcie: PCI host bridge to bus 0000:40
+[    4.981555] pci_bus 0000:40: root bus resource [bus 40-7f]
+[    4.987016] pci_bus 0000:40: root bus resource [mem 0x22008000000-0x2200ffeffff] (bus address [0xb0000000-0xb7feffff])
+[    4.997658] pci_bus 0000:40: root bus resource [io  0x0000-0xffff]
+[    5.003818] pci 0000:40:00.0: [19e5:0660] type 01 class 0x060400
+[    5.003868] pci 0000:40:00.0: supports D1 D2
+[    5.003871] pci 0000:40:00.0: PME# supported from D0 D1 D3hot
+[    5.004017] pci 0000:40:00.0: PCI bridge to [bus 41]
+[    5.008976] pcieport 0000:40:00.0: of_irq_parse_pci() failed with rc=-22
+[    5.015743] pcieport 0000:40:00.0: Signaling PME through PCIe PME interrupt
+[    5.022674] pcie_pme 0000:40:00.0:pcie01: service driver pcie_pme loaded
+[    5.022720] aer 0000:40:00.0:pcie02: service driver aer loaded
+[    5.022771] hisi-pcie b0080000.pcie: only 32-bit config accesses supported; smaller writes may corrupt adjacent RW1C fields
+[    5.036147] PCI host bridge /soc/pcie@b0090000 ranges:
+[    5.041262]   MEM 0x2400c000000..0x2400ffeffff -> 0xc0000000
+[    5.046895]    IO 0x2400fff0000..0x2400fffffff -> 0x00000000
+[    5.052670] hisi-pcie b0090000.pcie: PCI host bridge to bus 0001:80
+[    5.058904] pci_bus 0001:80: root bus resource [bus 80-bf]
+[    5.064364] pci_bus 0001:80: root bus resource [mem 0x2400c000000-0x2400ffeffff] (bus address [0xc0000000-0xc3feffff])
+[    5.075007] pci_bus 0001:80: root bus resource [io  0x10000-0x1ffff] (bus address [0x0000-0xffff])
+[    5.083929] pci 0001:80:00.0: [19e5:0660] type 01 class 0x060400
+[    5.083972] pci 0001:80:00.0: supports D1 D2
+[    5.083975] pci 0001:80:00.0: PME# supported from D0 D1 D3hot
+[    5.084108] pci 0001:80:00.0: PCI bridge to [bus 81]
+[    5.089065] pcieport 0001:80:00.0: of_irq_parse_pci() failed with rc=-22
+[    5.095818] pcieport 0001:80:00.0: Signaling PME through PCIe PME interrupt
+[    5.102748] pcie_pme 0001:80:00.0:pcie01: service driver pcie_pme loaded
+[    5.102793] aer 0001:80:00.0:pcie02: service driver aer loaded
+[    5.102841] hisi-pcie b0090000.pcie: only 32-bit config accesses supported; smaller writes may corrupt adjacent RW1C fields
+[    5.113991] ERST DBG: ERST support is disabled.
+[    5.118653] hisi-djtag soc:djtag: djtag init successfully.
+[    5.124478] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[    5.131189] no indirect ISA port I/O for Hisilicon LPC uart
+[    5.136696] console [ttyS0] disabled
+[    5.140440] 80300000.uart: ttyS0 at MMIO 0x80300000 (irq = 7, base_baud = 12500000) is a 16550A
+[    5.149114] console [ttyS0] enabled
+[    5.156122] bootconsole [uart0] disabled
+[    5.164128] Serial: AMBA driver
+[    5.167400] msm_serial: driver initialized
+[    5.171666] [drm] Initialized drm 1.1.0 20060810
+[    5.181044] loop: module loaded
+[    5.184447] megasas: 06.808.16.00-rc1
+[    5.188212] hisi_sas: driver version v1.4
+[    5.363182] scsi host0: hisi_sas
+[    5.533230] scsi host1: hisi_sas
+[    5.537454] tun: Universal TUN/TAP device driver, 1.6
+[    5.542533] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    5.548927] libphy: Hisilicon MII Bus: probed
+[    6.382122] netif_napi_add() called with weight 256 on device eth%d
+[    6.483926] sky2: driver version 1.30
+[    6.487627] PPP generic driver version 2.4.2
+[    6.492046] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    6.498607] ehci-pci: EHCI PCI platform driver
+[    6.503094] ehci-platform: EHCI generic platform driver
+[    6.508396] ehci-platform a1000000.ehci: EHCI Host Controller
+[    6.514174] ehci-platform a1000000.ehci: new USB bus registered, assigned bus number 1
+[    6.522217] ehci-platform a1000000.ehci: irq 9, io mem 0xa1000000
+[    6.542043] ehci-platform a1000000.ehci: USB 2.0 started, EHCI 1.00
+[    6.548259] hisi_sas_v1_hw b1000000.sas: phyup: phy2 link_rate=10
+[    6.554566] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+[    6.561383] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    6.562108] sas: phy-1:2 added to port-1:0, phy_mask:0x4 (5000c5008f59e985)
+[    6.562122] sas: DOING DISCOVERY on port 0, pid:318
+[    6.562126] sas: DONE DISCOVERY on port 0, pid:318, result:0
+[    6.563541] scsi 1:0:0:0: Direct-Access     SEAGATE  ST2000NX0273     NS28 PQ: 0 ANSI: 6
+[    6.565139] sd 1:0:0:0: Attached scsi generic sg0 type 0
+[    6.565586] sd 1:0:0:0: [sda] Disabling DIF Type 2 protection
+[    6.565593] sd 1:0:0:0: [sda] 3907029168 512-byte logical blocks: (2.00 TB/1.82 TiB)
+[    6.565596] sd 1:0:0:0: [sda] 4096-byte physical blocks
+[    6.567034] sd 1:0:0:0: [sda] Write Protect is off
+[    6.567037] sd 1:0:0:0: [sda] Mode Sense: d7 00 10 08
+[    6.567785] sd 1:0:0:0: [sda] Write cache: disabled, read cache: enabled, supports DPO and FUA
+[    6.593817]  sda: sda1 sda2
+[    6.597986] sd 1:0:0:0: [sda] Attached SCSI disk
+[    6.621774] usb usb1: Product: EHCI Host Controller
+[    6.626673] usb usb1: Manufacturer: Linux 4.4.11 ehci_hcd
+[    6.632095] usb usb1: SerialNumber: a1000000.ehci
+[    6.637025] hub 1-0:1.0: USB hub found
+[    6.640805] hub 1-0:1.0: 1 port detected
+[    6.644907] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    6.651117] ohci-platform: OHCI generic platform driver
+[    6.656431] ohci-platform a1010000.ohci: Generic Platform OHCI controller
+[    6.663256] ohci-platform a1010000.ohci: new USB bus registered, assigned bus number 2
+[    6.671258] ohci-platform a1010000.ohci: irq 10, io mem 0xa1010000
+[    6.736128] usb usb2: New USB device found, idVendor=1d6b, idProduct=0001
+[    6.742952] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    6.750203] usb usb2: Product: Generic Platform OHCI controller
+[    6.756150] usb usb2: Manufacturer: Linux 4.4.11 ohci_hcd
+[    6.761569] usb usb2: SerialNumber: a1010000.ohci
+[    6.766471] hub 2-0:1.0: USB hub found
+[    6.770249] hub 2-0:1.0: 1 port detected
+[    6.774364] usbcore: registered new interface driver usb-storage
+[    6.780518] mousedev: PS/2 mouse device common for all mice
+[    6.849581] rtc-efi rtc-efi: rtc core: registered rtc-efi as rtc0
+[    6.855745] i2c /dev entries driver
+[    6.859655] device-mapper: uevent: version 1.0.3
+[    6.864403] device-mapper: ioctl: 4.34.0-ioctl (2015-10-28) initialised: dm-devel@redhat.com
+[    6.873105] sdhci: Secure Digital Host Controller Interface driver
+[    6.879310] sdhci: Copyright(c) Pierre Ossman
+[    6.883706] Synopsys Designware Multimedia Card Interface Driver
+[    6.889881] ledtrig-cpu: registered to indicate activity on CPUs
+[    6.895979] EFI Variables Facility v0.08 2004-May-17
+[    6.902237] nf_conntrack version 0.5.0 (65536 buckets, 262144 max)
+[    6.909085] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    6.914715] NET: Registered protocol family 10
+[    6.919600] NET: Registered protocol family 17
+[    6.924085] bridge: automatic filtering via arp/ip/ip6tables has been deprecated. Update your scripts to load br_netfilter if you need this.
+[    6.936848] Bridge firewalling registered
+[    6.940959] Key type dns_resolver registered
+[    6.945540] registered taskstats version 1
+[    6.949672] Loading compiled-in X.509 certificates
+[    6.954560] zswap: default zpool zbud not available
+[    6.959457] zswap: pool creation failed
+[    6.964068] Btrfs loaded
+[    6.966822] Key type trusted registered
+[    6.971015] Key type encrypted registered
+[    6.975086] AppArmor: AppArmor sha1 policy hashing enabled
+[    6.980596] ima: No TPM chip found, activating TPM-bypass!
+[    6.986137] evm: HMAC attrs: 0x1
+[    7.052857] rtc-efi rtc-efi: setting system clock to 2016-11-10 01:26:28 UTC (1478741188)
+[    7.162093] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+[    7.272094] IPv6: ADDRCONF(NETDEV_UP): eth1: link is not ready
+[    7.392094] IPv6: ADDRCONF(NETDEV_UP): eth2: link is not ready
+[    7.512094] IPv6: ADDRCONF(NETDEV_UP): eth3: link is not ready
+[   10.162095] hns-nic soc:ethernet@5 eth0: link up
+[   10.172066] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+[   10.192038] Sending DHCP requests ..
+[   22.600651] DHCP/BOOTP: Reply not for us, op[2] xid[2f6341e0]
+[   22.606605] DHCP/BOOTP: Reply not for us, op[2] xid[2f6341e0]
+[   23.342034] ., OK
+[   23.412036] IP-Config: Got DHCP answer from 192.168.3.2, my address is 192.168.3.252
+[   23.595381] IP-Config: Complete:
+[   23.598624]      device=eth0, hwaddr=00:18:82:05:00:af, ipaddr=192.168.3.252, mask=255.255.255.0, gw=192.168.3.2
+[   23.608849]      host=192.168.3.252, domain=, nis-domain=(none)
+[   23.614796]      bootserver=192.168.3.1, rootserver=192.168.3.1, rootpath=
+[   23.621523]      nameserver0=8.8.8.8
+[   23.625122] , nameserver1=114.114.114.114
+[   23.627863] ALSA device list:
+[   23.630841]   No soundcards found.
+[   23.634337] ttyS0 - failed to request DMA
+[   23.638385] md: Waiting for all devices to be available before autodetect
+[   23.645203] md: If you don't use raid, use raid=noautodetect
+[   23.651175] md: Autodetecting RAID arrays.
+[   23.655301] md: Scanned 0 and added 0 devices.
+[   23.659760] md: autorun ...
+[   23.662565] md: ... autorun DONE.
+[   23.676917] EXT4-fs (sda2): mounted filesystem with ordered data mode. Opts: (null)
+[   23.684620] VFS: Mounted root (ext4 filesystem) on device 8:2.
+[   23.706197] devtmpfs: mounted
+[   23.709646] Freeing unused kernel memory: 1180K (ffffffc001190000 - ffffffc0012b7000)
+[   23.717537] Freeing alternatives memory: 72K (ffffffc0012b7000 - ffffffc0012c9000)
+[   24.068315] random: systemd urandom read with 39 bits of entropy available
+[   24.076743] systemd[1]: systemd 215 running in system mode. (+PAM +AUDIT +SELINUX +IMA +SYSVINIT +LIBCRYPTSETUP +GCRYPT +ACL +XZ -SECCOMP -APPARMOR)
+[   24.090224] systemd[1]: Detected architecture 'arm64'.
+[   24.230900] systemd[1]: Inserted module 'autofs4'
+[   24.242589] systemd[1]: Set hostname to <debian>.
+[   24.855158] systemd[1]: Cannot add dependency job for unit display-manager.service, ignoring: Unit display-manager.service failed to load: No such file or directory.
+[   24.870408] systemd[1]: Expecting device dev-ttyS0.device...
+[   24.892080] systemd[1]: Starting Forward Password Requests to Wall Directory Watch.
+[   24.899830] systemd[1]: Started Forward Password Requests to Wall Directory Watch.
+[   24.907452] systemd[1]: Starting Remote File Systems (Pre).
+[   24.932062] systemd[1]: Reached target Remote File Systems (Pre).
+[   24.938195] systemd[1]: Starting Encrypted Volumes.
+[   24.962059] systemd[1]: Reached target Encrypted Volumes.
+[   24.967496] systemd[1]: Starting Dispatch Password Requests to Console Directory Watch.
+[   24.975588] systemd[1]: Started Dispatch Password Requests to Console Directory Watch.
+[   24.983552] systemd[1]: Starting Paths.
+[   25.002060] systemd[1]: Reached target Paths.
+[   25.006464] systemd[1]: Starting Arbitrary Executable File Formats File System Automount Point.
+[   25.042064] systemd[1]: Set up automount Arbitrary Executable File Formats File System Automount Point.
+[   25.051509] systemd[1]: Starting Swap.
+[   25.072059] systemd[1]: Reached target Swap.
+[   25.076355] systemd[1]: Starting Root Slice.
+[   25.092059] systemd[1]: Created slice Root Slice.
+[   25.096792] systemd[1]: Starting User and Session Slice.
+[   25.122060] systemd[1]: Created slice User and Session Slice.
+[   25.127840] systemd[1]: Starting Delayed Shutdown Socket.
+[   25.152059] systemd[1]: Listening on Delayed Shutdown Socket.
+[   25.157839] systemd[1]: Starting /dev/initctl Compatibility Named Pipe.
+[   25.182060] systemd[1]: Listening on /dev/initctl Compatibility Named Pipe.
+[   25.189059] systemd[1]: Starting Journal Socket (/dev/log).
+[   25.212060] systemd[1]: Listening on Journal Socket (/dev/log).
+[   25.218018] systemd[1]: Starting udev Kernel Socket.
+[   25.242059] systemd[1]: Listening on udev Kernel Socket.
+[   25.247405] systemd[1]: Starting udev Control Socket.
+[   25.272058] systemd[1]: Listening on udev Control Socket.
+[   25.277490] systemd[1]: Starting Journal Socket.
+[   25.302058] systemd[1]: Listening on Journal Socket.
+[   25.307063] systemd[1]: Starting System Slice.
+[   25.332059] systemd[1]: Created slice System Slice.
+[   25.336969] systemd[1]: Starting system-getty.slice.
+[   25.362058] systemd[1]: Created slice system-getty.slice.
+[   25.367488] systemd[1]: Starting system-serialx2dgetty.slice.
+[   25.392060] systemd[1]: Created slice system-serialx2dgetty.slice.
+[   25.398381] systemd[1]: Starting Increase datagram queue length...
+[   25.452269] systemd[1]: Mounting Debug File System...
+[   25.472611] systemd[1]: Mounting POSIX Message Queue File System...
+[   25.506031] systemd[1]: Started Set Up Additional Binary Formats.
+[   25.512881] systemd[1]: Starting Load Kernel Modules...
+[   25.532635] systemd[1]: Starting udev Coldplug all Devices...
+[   25.552697] systemd[1]: Starting Create list of required static device nodes for the current kernel...
+[   25.582688] systemd[1]: Mounting Huge Pages File System...
+[   25.602626] systemd[1]: Starting Slices.
+e[   25.622063] systemd[1]: Reached target Slices.
+[   25.626548] systemd[1]: Starting Remount Root and Kernel File Systems...
+[   25.672105] systemd[1]: Mounted Huge Pages File System.
+[   25.692062] systemd[1]: Mounted POSIX Message Queue File System.
+[   25.712090] systemd[1]: Mounted Debug File System.
+[   25.732062] systemd[1]: Started Increase datagram queue length.
+[   25.752065] systemd[1]: Started Load Kernel Modules.
+[   25.822086] systemd[1]: Started Create list of required static device nodes for the current kernel.
+[   25.852064] systemd[1]: Started Remount Root and Kernel File Systems.
+[   25.882060] systemd[1]: Started udev Coldplug all Devices.
+[   25.935436] systemd[1]: Started Various fixups to make systemd work better on Debian.
+[   25.943325] systemd[1]: Starting Load/Save Random Seed...
+[   26.022254] systemd[1]: Starting Create Static Device Nodes in /dev...
+[   26.052729] systemd[1]: Mounted Configuration File System.
+[   26.058284] systemd[1]: Mounted FUSE Control File System.
+[   26.063736] systemd[1]: Starting Apply Kernel Variables...
+[   26.092663] systemd[1]: Starting Syslog Socket.
+[   26.112087] systemd[1]: Listening on Syslog Socket.
+[   26.117013] systemd[1]: Starting Journal Service...
+[   26.162070] systemd[1]: Started Journal Service.
+[   26.320503] systemd-udevd[2012]: starting version 215
+[   26.622526] systemd-journald[2011]: Received request to flush runtime journal from PID 1
+[   26.695078] input: gpio_keys as /devices/platform/gpio_keys/input/input0
+[   26.809003] lm75 0-0048: hwmon0: sensor 'adt75'
+[   26.854870] rtc-ds1307 0-0068: SET TIME!
+[   26.861761] rtc-ds1307 0-0068: rtc core: registered ds3231 as rtc1
+[   26.868011] at24 0-0052: 16384 byte 24c128 EEPROM, writable, 64 bytes/write
+[   26.967842] shpchp: Standard Hot Plug PCI Controller Driver version: 0.4
+[   27.011660] hns-nic soc:ethernet@4 eth4: renamed from eth1
+[   27.082215] systemd-udevd[2028]: renamed network interface eth1 to eth4
+[   28.950810] hns-nic soc:ethernet@0 eth6: renamed from eth2
+[   29.192174] systemd-udevd[2026]: renamed network interface eth2 to eth6
+[   29.931096] hns-nic soc:ethernet@1 eth7: renamed from eth3
+[   30.022168] systemd-udevd[2027]: renamed network interface eth3 to eth7
+[   30.422292] random: nonblocking pool is initialized
+[   31.325920] Installing knfsd (copyright (C) 1996 okir@monad.swb.de).
+[ 1234.836599] Program lscpu tried to access /dev/mem between 7a710000->7a710020.
+<LAVA_SIGNAL_ENDTC linux-linaro-dmesg>
+cho LAVA_ACK
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=linux-linaro-dmesg RESULT=pass>
+<LAVA_SIGNAL_STARTTC linux-linaro-ps>
+echo LAVA_ACK
+PID TTY          TIME CMD
+3017 pts/0    00:00:00 bash
+3028 pts/0    00:00:00 lava-test-runne
+3053 pts/0    00:00:00 lava-test-shell
+3054 pts/0    00:00:00 lava-test-shell
+3055 pts/0    00:00:00 lava-test-shell
+3056 pts/0    00:00:00 bash
+3088 pts/0    00:00:00 lava-test-case
+3089 pts/0    00:00:00 ps
+<LAVA_SIGNAL_ENDTC linux-linaro-ps>
+echo LAVA_ACK
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=linux-linaro-ps RESULT=pass>
+<LAVA_SIGNAL_STARTTC linux-linaro-issue>
+echo LAVA_ACK
+echo LAVA_ACK
+echo LAVA_ACK
+echo LAVA_ACK
+echo LAVA_ACK
+echo LAVA_ACK
+ 
+ 
+ 
+ 
+ 
+ 
+NU/Linux 8 n l
+<LAVA_SIGNAL_ENDTC linux-linaro-issue>
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=linux-linaro-issue RESULT=pass>
+<LAVA_SIGNAL_STARTTC linux-linaro-interrupts>
+CPU0       CPU1       CPU2       CPU3       CPU4       CPU5       CPU6       CPU7       CPU8       CPU9       CPU10      CPU11      CPU12      CPU13      CPU14      CPU15
+1:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0     GICv3  25 Edge      vgic
+2:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0     GICv3  29 Edge      arch_timer
+3:       4580       2348       4295       2767       3767       2945       3099       4751       2189       2256       2378       2029       2174       2507       2198       1929     GICv3  30 Edge      arch_timer
+4:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0     GICv3  27 Edge      kvm guest timer
+7:       3047          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0     GICv3 349 Level     serial
+8:         42          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1   9 Level     a00f0000.i2c
+9:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1  20 Level     ehci_hcd:usb1
+ 
+ 
+ 
+        0          0          0  mbigen-v1  19 Level     ohci_hcd:usb2
+70:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 384 Edge      eth2-tx0
+71:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 385 Edge      eth2-rx0
+72:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 386 Edge      eth2-tx1
+73:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 387 Edge      eth2-rx1
+74:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 388 Edge      eth2-tx2
+75:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 389 Edge      eth2-rx2
+76:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 390 Edge      eth2-tx3
+77:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 391 Edge      eth2-rx3
+78:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 392 Edge      eth2-tx4
+79:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 393 Edge      eth2-rx4
+80:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 394 Edge      eth2-tx5
+81:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 395 Edge      eth2-rx5
+82:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 396 Edge      eth2-tx6
+83:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 397 Edge      eth2-rx6
+84:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 398 Edge      eth2-tx7
+85:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 399 Edge      eth2-rx7
+86:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 400 Edge      eth2-tx8
+87:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 401 Edge      eth2-rx8
+88:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 402 Edge      eth2-tx9
+89:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 403 Edge      eth2-rx9
+90:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 404 Edge      eth2-tx10
+91:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 405 Edge      eth2-rx10
+92:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 406 Edge      eth2-tx11
+93:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 407 Edge      eth2-rx11
+94:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 408 Edge      eth2-tx12
+95:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 409 Edge      eth2-rx12
+96:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 410 Edge      eth2-tx13
+97:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 411 Edge      eth2-rx13
+98:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 412 Edge      eth2-tx14
+99:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 413 Edge      eth2-rx14
+100:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 414 Edge      eth2-tx15
+101:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 415 Edge      eth2-rx15
+102:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 416 Edge      eth3-tx0
+103:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 417 Edge      eth3-rx0
+104:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 418 Edge      eth3-tx1
+105:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 419 Edge      eth3-rx1
+106:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 420 Edge      eth3-tx2
+107:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 421 Edge      eth3-rx2
+108:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 422 Edge      eth3-tx3
+109:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 423 Edge      eth3-rx3
+110:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 424 Edge      eth3-tx4
+111:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 425 Edge      eth3-rx4
+112:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 426 Edge      eth3-tx5
+113:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 427 Edge      eth3-rx5
+114:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 428 Edge      eth3-tx6
+115:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 429 Edge      eth3-rx6
+116:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 430 Edge      eth3-tx7
+117:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 431 Edge      eth3-rx7
+118:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 432 Edge      eth3-tx8
+119:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 433 Edge      eth3-rx8
+120:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 434 Edge      eth3-tx9
+121:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 435 Edge      eth3-rx9
+122:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 436 Edge      eth3-tx10
+123:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 437 Edge      eth3-rx10
+124:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 438 Edge      eth3-tx11
+125:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 439 Edge      eth3-rx11
+126:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 440 Edge      eth3-tx12
+127:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 441 Edge      eth3-rx12
+128:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 442 Edge      eth3-tx13
+129:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 443 Edge      eth3-rx13
+130:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 444 Edge      eth3-tx14
+131:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 445 Edge      eth3-rx14
+132:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 446 Edge      eth3-tx15
+133:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 447 Edge      eth3-rx15
+198:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 512 Edge      eth1-tx0
+199:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 513 Edge      eth1-rx0
+200:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 514 Edge      eth1-tx1
+201:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 515 Edge      eth1-rx1
+202:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 516 Edge      eth1-tx2
+203:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 517 Edge      eth1-rx2
+204:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 518 Edge      eth1-tx3
+205:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 519 Edge      eth1-rx3
+206:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 520 Edge      eth1-tx4
+207:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 521 Edge      eth1-rx4
+208:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 522 Edge      eth1-tx5
+209:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 523 Edge      eth1-rx5
+210:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 524 Edge      eth1-tx6
+211:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 525 Edge      eth1-rx6
+212:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 526 Edge      eth1-tx7
+213:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 527 Edge      eth1-rx7
+214:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 528 Edge      eth1-tx8
+215:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 529 Edge      eth1-rx8
+216:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 530 Edge      eth1-tx9
+217:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 531 Edge      eth1-rx9
+218:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 532 Edge      eth1-tx10
+219:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 533 Edge      eth1-rx10
+220:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 534 Edge      eth1-tx11
+221:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 535 Edge      eth1-rx11
+222:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 536 Edge      eth1-tx12
+223:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 537 Edge      eth1-rx12
+224:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 538 Edge      eth1-tx13
+225:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 539 Edge      eth1-rx13
+226:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 540 Edge      eth1-tx14
+227:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 541 Edge      eth1-rx14
+228:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 542 Edge      eth1-tx15
+229:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 543 Edge      eth1-rx15
+230:         30          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 544 Edge      eth0-tx0
+231:        218          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 545 Edge      eth0-rx0
+232:          0         29          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 546 Edge      eth0-tx1
+233:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 547 Edge      eth0-rx1
+234:          0          0         49          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 548 Edge      eth0-tx2
+235:          0          0       1852          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 549 Edge      eth0-rx2
+236:          0          0          0       4765          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 550 Edge      eth0-tx3
+237:          0          0          0        348          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 551 Edge      eth0-rx3
+238:          0          0          0          0         26          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 552 Edge      eth0-tx4
+239:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 553 Edge      eth0-rx4
+240:          0          0          0          0          0        937          0          0          0          0          0          0          0          0          0          0  mbigen-v1 554 Edge      eth0-tx5
+241:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 555 Edge      eth0-rx5
+242:          0          0          0          0          0          0         26          0          0          0          0          0          0          0          0          0  mbigen-v1 556 Edge      eth0-tx6
+243:          0          0          0          0          0          0        296          0          0          0          0          0          0          0          0          0  mbigen-v1 557 Edge      eth0-rx6
+244:          0          0          0          0          0          0          0         17          0          0          0          0          0          0          0          0  mbigen-v1 558 Edge      eth0-tx7
+245:          0          0          0          0          0          0          0      23711          0          0          0          0          0          0          0          0  mbigen-v1 559 Edge      eth0-rx7
+246:          0          0          0          0          0          0          0          0        132          0          0          0          0          0          0          0  mbigen-v1 560 Edge      eth0-tx8
+247:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 561 Edge      eth0-rx8
+248:          0          0          0          0          0          0          0          0          0         18          0          0          0          0          0          0  mbigen-v1 562 Edge      eth0-tx9
+249:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 563 Edge      eth0-rx9
+250:          0          0          0          0          0          0          0          0          0          0       5369          0          0          0          0          0  mbigen-v1 564 Edge      eth0-tx10
+251:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 565 Edge      eth0-rx10
+252:          0          0          0          0          0          0          0          0          0          0          0         30          0          0          0          0  mbigen-v1 566 Edge      eth0-tx11
+253:          0          0          0          0          0          0          0          0          0          0          0        761          0          0          0          0  mbigen-v1 567 Edge      eth0-rx11
+254:          0          0          0          0          0          0          0          0          0          0          0          0         23          0          0          0  mbigen-v1 568 Edge      eth0-tx12
+255:          0          0          0          0          0          0          0          0          0          0          0          0        114          0          0          0  mbigen-v1 569 Edge      eth0-rx12
+256:          0          0          0          0          0          0          0          0          0          0          0          0          0       5949          0          0  mbigen-v1 570 Edge      eth0-tx13
+257:          0          0          0          0          0          0          0          0          0          0          0          0          0      23624          0          0  mbigen-v1 571 Edge      eth0-rx13
+258:          0          0          0          0          0          0          0          0          0          0          0          0          0          0         30          0  mbigen-v1 572 Edge      eth0-tx14
+259:          0          0          0          0          0          0          0          0          0          0          0          0          0          0      23800          0  mbigen-v1 573 Edge      eth0-rx14
+260:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0         22  mbigen-v1 574 Edge      eth0-tx15
+261:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0        113  mbigen-v1 575 Edge      eth0-rx15
+326:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 259 Level     hisi_sas_v1_hw phy
+327:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 263 Level     hisi_sas_v1_hw phy
+328:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 264 Level     hisi_sas_v1_hw phy
+329:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 269 Level     hisi_sas_v1_hw phy
+330:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 273 Level     hisi_sas_v1_hw phy
+331:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 274 Level     hisi_sas_v1_hw phy
+332:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 279 Level     hisi_sas_v1_hw phy
+333:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 283 Level     hisi_sas_v1_hw phy
+334:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 284 Level     hisi_sas_v1_hw phy
+335:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 289 Level     hisi_sas_v1_hw phy
+336:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 293 Level     hisi_sas_v1_hw phy
+337:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 294 Level     hisi_sas_v1_hw phy
+338:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 299 Level     hisi_sas_v1_hw phy
+339:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 303 Level     hisi_sas_v1_hw phy
+340:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 304 Level     hisi_sas_v1_hw phy
+341:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 309 Level     hisi_sas_v1_hw phy
+342:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 313 Level     hisi_sas_v1_hw phy
+343:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 314 Level     hisi_sas_v1_hw phy
+344:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 319 Level     hisi_sas_v1_hw phy
+345:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 323 Level     hisi_sas_v1_hw phy
+346:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 324 Level     hisi_sas_v1_hw phy
+347:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 329 Level     hisi_sas_v1_hw phy
+348:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 333 Level     hisi_sas_v1_hw phy
+349:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 334 Level     hisi_sas_v1_hw phy
+350:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 336 Edge      hisi_sas_v1_hw cq
+351:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 337 Edge      hisi_sas_v1_hw cq
+352:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 338 Edge      hisi_sas_v1_hw cq
+353:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 339 Edge      hisi_sas_v1_hw cq
+354:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 340 Edge      hisi_sas_v1_hw cq
+355:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 341 Edge      hisi_sas_v1_hw cq
+356:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 342 Edge      hisi_sas_v1_hw cq
+357:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 343 Edge      hisi_sas_v1_hw cq
+358:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 344 Edge      hisi_sas_v1_hw cq
+359:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 345 Edge      hisi_sas_v1_hw cq
+360:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 346 Edge      hisi_sas_v1_hw cq
+361:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 347 Edge      hisi_sas_v1_hw cq
+362:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 348 Edge      hisi_sas_v1_hw cq
+363:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 349 Edge      hisi_sas_v1_hw cq
+364:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 350 Edge      hisi_sas_v1_hw cq
+365:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 351 Edge      hisi_sas_v1_hw cq
+366:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 352 Edge      hisi_sas_v1_hw cq
+367:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 353 Edge      hisi_sas_v1_hw cq
+368:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 354 Edge      hisi_sas_v1_hw cq
+369:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 355 Edge      hisi_sas_v1_hw cq
+370:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 356 Edge      hisi_sas_v1_hw cq
+371:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 357 Edge      hisi_sas_v1_hw cq
+372:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 358 Edge      hisi_sas_v1_hw cq
+373:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 359 Edge      hisi_sas_v1_hw cq
+374:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 360 Edge      hisi_sas_v1_hw cq
+375:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 361 Edge      hisi_sas_v1_hw cq
+376:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 362 Edge      hisi_sas_v1_hw cq
+377:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 363 Edge      hisi_sas_v1_hw cq
+378:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 364 Edge      hisi_sas_v1_hw cq
+379:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 365 Edge      hisi_sas_v1_hw cq
+380:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 366 Edge      hisi_sas_v1_hw cq
+381:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 367 Edge      hisi_sas_v1_hw cq
+382:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 376 Level     hisi_sas_v1_hw fatal
+383:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 381 Level     hisi_sas_v1_hw fatal
+384:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 259 Level     hisi_sas_v1_hw phy
+385:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 263 Level     hisi_sas_v1_hw phy
+386:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 264 Level     hisi_sas_v1_hw phy
+387:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 269 Level     hisi_sas_v1_hw phy
+388:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 273 Level     hisi_sas_v1_hw phy
+389:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 274 Level     hisi_sas_v1_hw phy
+390:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 279 Level     hisi_sas_v1_hw phy
+391:          1          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 283 Level     hisi_sas_v1_hw phy
+392:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 284 Level     hisi_sas_v1_hw phy
+393:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 289 Level     hisi_sas_v1_hw phy
+394:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 293 Level     hisi_sas_v1_hw phy
+395:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 294 Level     hisi_sas_v1_hw phy
+396:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 299 Level     hisi_sas_v1_hw phy
+397:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 303 Level     hisi_sas_v1_hw phy
+398:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 304 Level     hisi_sas_v1_hw phy
+399:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 309 Level     hisi_sas_v1_hw phy
+400:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 313 Level     hisi_sas_v1_hw phy
+401:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 314 Level     hisi_sas_v1_hw phy
+402:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 319 Level     hisi_sas_v1_hw phy
+403:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 323 Level     hisi_sas_v1_hw phy
+404:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 324 Level     hisi_sas_v1_hw phy
+405:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 329 Level     hisi_sas_v1_hw phy
+406:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 333 Level     hisi_sas_v1_hw phy
+407:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 334 Level     hisi_sas_v1_hw phy
+408:        163          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 336 Edge      hisi_sas_v1_hw cq
+409:        163          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 337 Edge      hisi_sas_v1_hw cq
+410:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 338 Edge      hisi_sas_v1_hw cq
+411:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 339 Edge      hisi_sas_v1_hw cq
+412:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 340 Edge      hisi_sas_v1_hw cq
+413:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 341 Edge      hisi_sas_v1_hw cq
+414:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 342 Edge      hisi_sas_v1_hw cq
+415:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 343 Edge      hisi_sas_v1_hw cq
+416:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 344 Edge      hisi_sas_v1_hw cq
+417:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 345 Edge      hisi_sas_v1_hw cq
+418:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 346 Edge      hisi_sas_v1_hw cq
+419:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 347 Edge      hisi_sas_v1_hw cq
+420:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 348 Edge      hisi_sas_v1_hw cq
+421:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 349 Edge      hisi_sas_v1_hw cq
+422:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 350 Edge      hisi_sas_v1_hw cq
+423:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 351 Edge      hisi_sas_v1_hw cq
+424:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 352 Edge      hisi_sas_v1_hw cq
+425:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 353 Edge      hisi_sas_v1_hw cq
+426:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 354 Edge      hisi_sas_v1_hw cq
+427:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 355 Edge      hisi_sas_v1_hw cq
+428:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 356 Edge      hisi_sas_v1_hw cq
+429:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 357 Edge      hisi_sas_v1_hw cq
+430:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 358 Edge      hisi_sas_v1_hw cq
+431:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 359 Edge      hisi_sas_v1_hw cq
+432:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 360 Edge      hisi_sas_v1_hw cq
+433:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 361 Edge      hisi_sas_v1_hw cq
+434:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 362 Edge      hisi_sas_v1_hw cq
+435:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 363 Edge      hisi_sas_v1_hw cq
+436:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 364 Edge      hisi_sas_v1_hw cq
+437:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 365 Edge      hisi_sas_v1_hw cq
+438:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 366 Edge      hisi_sas_v1_hw cq
+439:        162          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 367 Edge      hisi_sas_v1_hw cq
+440:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 376 Level     hisi_sas_v1_hw fatal
+441:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0  mbigen-v1 381 Level     hisi_sas_v1_hw fatal
+478:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0   ITS-MSI 33554432 Edge      PCIe PME, aerdrv
+511:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0   ITS-MSI 201326592 Edge      PCIe PME, aerdrv
+521:          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0         -   8 Edge      Power Button
+IPI0:      1603       2038       3189       3211       2455       4556       2553       3322       1335        979        742        776       1056       2143       5510       4261       Rescheduling interrupts
+IPI1:        76         67         79         81        402        478       1190        629        276        198        378        235        290        353        171        213       Function call interrupts
+IPI2:         0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0       CPU stop interrupts
+IPI3:         0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0       Timer broadcast interrupts
+IPI4:         0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0       IRQ work interrupts
+IPI5:         0          0          0          0          0          0          0          0          0          0          0          0          0          0          0          0       CPU wake-up interrupts
+Err:          0
+<LAVA_SIGNAL_ENDTC linux-linaro-interrupts>
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=linux-linaro-interrupts RESULT=pass>
+<LAVA_SIGNAL_STARTTC linux-linaro-boot-cmds>
+ 
+ 
+ 
+ rootfstype=ext4 rw console=ttyS0,115200 earlycon=uart8250,mmio32,0x80300000 ip=dhcp
+<LAVA_SIGNAL_ENDTC linux-linaro-boot-cmds>
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=linux-linaro-boot-cmds RESULT=pass>
+<LAVA_SIGNAL_STARTTC linux-linaro-device-info>
+echo LAVA_ACK
+echo LAVA_ACK
+echo LAVA_ACK
+echo LAVA_ACK
+echo LAVA_ACK
+echo LAVA_ACK
+echo LAVA_ACK
+echo LAVA_ACK
+echo LAVA_ACK
+Character devices:
+1 mem
+4 /dev/vc/0
+4 tty
+4 ttyS
+5 /dev/tty
+5 /dev/console
+5 /dev/ptmx
+7 vcs
+10 misc
+13 input
+21 sg
+29 fb
+89 i2c
+108 ppp
+116 alsa
+128 ptm
+136 pts
+180 usb
+189 usb_device
+204 ttyAM
+226 drm
+247 uio
+248 megaraid_sas_ioctl
+249 ttyMSM
+250 bsg
+251 watchdog
+252 tee
+253 rtc
+254 tpm
+Block devices:
+259 blkext
+7 loop
+8 sd
+9 md
+11 sr
+65 sd
+66 sd
+67 sd
+68 sd
+69 sd
+70 sd
+71 sd
+128 sd
+129 sd
+130 sd
+131 sd
+132 sd
+133 sd
+134 sd
+135 sd
+179 mmc
+251 device-mapper
+252 virtblk
+253 pktcdvd
+254 mdp
+<LAVA_SIGNAL_ENDTC linux-linaro-device-info>
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=linux-linaro-device-info RESULT=pass>
+<LAVA_SIGNAL_STARTTC linux-linaro-filesystem-info>
+nodev	sysfs
+nodev	rootfs
+nodev	ramfs
+nodev	bdev
+nodev	proc
+nodev	cpuset
+nodev	cgroup
+nodev	tmpfs
+nodev	devtmpfs
+nodev	debugfs
+nodev	tracefs
+nodev	securityfs
+nodev	sockfs
+nodev	bpf
+nodev	pipefs
+nodev	rpc_pipefs
+nodev	devpts
+ext3
+ext2
+ext4
+nodev	hugetlbfs
+vfat
+iso9660
+nodev	nfs
+nodev	nfs4
+nodev	overlay
+nodev	pstore
+nodev	efivarfs
+nodev	mqueue
+btrfs
+nodev	autofs
+nodev	nfsd
+<LAVA_SIGNAL_ENDTC linux-linaro-filesystem-info>
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=linux-linaro-filesystem-info RESULT=pass>
+<LAVA_SIGNAL_STARTTC linux-linaro-env>
+TERM=linux
+SHELL=/bin/bash
+SSH_CLIENT=192.168.3.100 52636 22
+LAVA_RESULT_DIR=/lava-d02_02_ssh/results/0_e77b3eb6-b794-4f61-8b14-ade5ae057a41-1478742407
+TESTRUN_ID=smoke_testing
+SSH_TTY=/dev/pts/0
+USER=root
+MAIL=/var/mail/root
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+/bin
+PWD=/lava-d02_02_ssh/tests/0_e77b3eb6-b794-4f61-8b14-ade5ae057a41
+LANG=en_HK.UTF-8
+SHLVL=5
+HOME=/root
+LANGUAGE=en_HK:en
+LOGNAME=root
+SSH_CONNECTION=192.168.3.100 52636 192.168.3.192 22
+_=/usr/bin/env
+<LAVA_SIGNAL_ENDTC linux-linaro-env>
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=linux-linaro-env RESULT=pass>
+<LAVA_SIGNAL_STARTTC linux-linaro-lsmod>
+Module                  Size  Used by
+nfsd                  397312  2
+shpchp                 49152  0
+at24                   16384  0
+rtc_ds1307             24576  0
+lm80                   20480  0
+lm75                   16384  0
+i2c_designware_platform    16384  0
+evdev                  24576  0
+gpio_dwapb             20480  1
+i2c_designware_core    20480  1 i2c_designware_platform
+uio_pdrv_genirq        16384  0
+gpio_keys              20480  0
+uio                    24576  1 uio_pdrv_genirq
+autofs4                49152  2
+<LAVA_SIGNAL_ENDTC linux-linaro-lsmod>
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=linux-linaro-lsmod RESULT=pass>
+<LAVA_SIGNAL_STARTTC linux-linaro-cpu-info>
+Architecture:          aarch64
+Byte Order:            Little Endian
+CPU(s):                16
+On-line CPU(s) list:   0-15
+Thread(s) per core:    1
+Core(s) per socket:    4
+Socket(s):             4
+NUMA node(s):          1
+L1d cache:             32K
+L1i cache:             48K
+L2 cache:              1024K
+NUMA node0 CPU(s):     0-15
+<LAVA_SIGNAL_ENDTC linux-linaro-cpu-info>
+echo LAVA_ACK
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=linux-linaro-cpu-info RESULT=pass>
+<LAVA_SIGNAL_STARTTC linux-linaro-pci-info>
+echo LAVA_ACK
+0000:40:00.0 PCI bridge: Device 19e5:0660 (rev 01)
+0001:80:00.0 PCI bridge: Device 19e5:0660 (rev 01)
+<LAVA_SIGNAL_ENDTC linux-linaro-pci-info>
+echo LAVA_ACK
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=linux-linaro-pci-info RESULT=pass>
+<LAVA_SIGNAL_STARTTC linux-linaro-usb-info>
+echo LAVA_ACK
+eBus 002 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2.0 root hub
+<LAVA_SIGNAL_ENDTC linux-linaro-usb-info>
+cho LAVA_ACK
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=linux-linaro-usb-info RESULT=pass>
+Usage: dmidecode [OPTIONS]
+Options are:
+-d, --dev-mem FILE     Read memory from device FILE (default: /dev/mem)
+-h, --help             Display this help text and exit
+-q, --quiet            Less verbose output
+-s, --string KEYWORD   Only display the value of the given DMI string
+-t, --type TYPE        Only display the entries of given type
+-u, --dump             Do not decode the entries
+--dump-bin FILE    Dump the DMI data to a binary file
+--from-dump FILE   Read the DMI data from a binary file
+--no-sysfs         Do not attempt to read DMI data from sysfs files
+-V, --version          Display the version and exit
+dmidecode have installed
+id
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=kernel-space-sysfs-dmi-exist RESULT=pass>
+07/01/2016
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=kernel-space-sysfs-bios-date RESULT=pass>
+Huawei Corp.
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=kernel-space-sysfs-bios-vendor RESULT=pass>
+Estuary v2.2 D02 UEFI
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=kernel-space-sysfs-bios-version RESULT=pass>
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=user-space-dmidecode-smbios-present RESULT=fail>
+BIOS Information
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=user-space-dmidecode-bios-has-info RESULT=pass>
+System Information
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=user-space-dmidecode-system-has-info RESULT=pass>
+eBase Board Information
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=user-space-dmidecode-baseboard-has-info RESULT=pass>
+Chassis Information
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=user-space-dmidecode-chassis-has-info RESULT=pass>
+Processor Information
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=user-space-dmidecode-processor-has-info RESULT=pass>
+Memory Device
+Memory Device
+Memory Device
+Memory Device
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=user-space-dmidecode-memory-has-info RESULT=pass>
+Cache Information
+Cache Information
+Cache Information
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Cache Information
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=user-space-dmidecode-cache-has-info RESULT=pass>
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=user-space-dmidecode-connector-has-info RESULT=fail>
+<LAVA_SIGNAL_TESTCASE TEST_CASE_ID=user-space-dmidecode-slot-has-info RESULT=fail>
+# dmidecode 3.0
+Getting SMBIOS data from sysfs.
+SMBIOS 3.0.0 present.
+Table at 0x7A6E0000.
+Handle 0x0000, DMI type 0, 24 bytes
+BIOS Information
+Vendor: Huawei Corp.
+Version: Estuary v2.2 D02 UEFI
+Release Date: 07/01/2016
+Address: 0xA4800
+Runtime Size: 366 kB
+ROM Size: 3072 kB
+Characteristics:
+PCI is supported
+BIOS is upgradeable
+BIOS shadowing is allowed
+Boot from CD is supported
+Selectable boot is supported
+EDD is supported
+Japanese floppy for NEC 9800 1.2 MB is supported (int 13h)
+Japanese floppy for Toshiba 1.2 MB is supported (int 13h)
+5.25"/360 kB floppy services are supported (int 13h)
+5.25"/1.2 MB floppy services are supported (int 13h)
+3.5"/720 kB floppy services are supported (int 13h)
+3.5"/2.88 MB floppy services are supported (int 13h)
+8042 keyboard services are supported (int 9h)
+CGA/mono video services are supported (int 10h)
+ACPI is supported
+USB legacy is supported
+BIOS boot specification is supported
+Targeted content distribution is supported
+UEFI is supported
+BIOS Revision: 0.0
+Handle 0x0001, DMI type 1, 27 bytes
+System Information
+Manufacturer: Huawei Technologies Co., Ltd.
+Product Name: D02
+Version: Estuary
+Serial Number: To be filled by O.E.M.
+UUID: 12345678-1234-5678-90AB-CDDEEFAABBCC
+Wake-up Type: Power Switch
+SKU Number: To be filled by O.E.M.
+Family: To be filled by O.E.M.
+Handle 0x0002, DMI type 3, 25 bytes
+Chassis Information
+Manufacturer: Huawei Technologies Co., Ltd.
+Type: Main Server Chassis
+Lock: Not Present
+Version: To Be Filled By O.E.M.
+Serial Number: To Be Filled By O.E.M.
+Asset Tag: To Be Filled By O.E.M.
+Boot-up State: Safe
+Power Supply State: Safe
+Thermal State: Safe
+Security Status: None
+ 
+ 
+ 
+rmation: 0x00000000
+Height: 2 U
+Number Of Power Cords: 1
+Contained Elements: 0
+SKU Number: Not Specified
+Handle 0x0003, DMI type 2, 17 bytes
+Base Board Information
+Manufacturer: Huawei Technologies Co., Ltd.
+Product Name: D02
+Version: Estuary
+Serial Number: To Be Filled By O.E.M.
+Asset Tag: To Be Filled By O.E.M.
+Features:
+Board is a hosting board
+Board is replaceable
+Location In Chassis: To Be Filled By O.E.M.
+Chassis Handle: 0x0002
+Type: Motherboard
+Contained Object Handles: 0
+Handle 0x0004, DMI type 13, 22 bytes
+BIOS Language Information
+Language Description Format: Long
+Installable Languages: 1
+en|US|iso8859-1
+Currently Installed Language: en|US|iso8859-1
+Handle 0x0005, DMI type 32, 11 bytes
+System Boot Information
+Status: No errors detected
+Handle 0x0006, DMI type 38, 18 bytes
+IPMI Device Information
+Interface Type: Unknown
+Specification Version: 0.0
+I2C Slave Address: 0x00
+NV Storage Device: Not Present
+Base Address: 0x0000000000000088 (Memory-mapped)
+Register Spacing: Successive Byte Boundaries
+Handle 0x0007, DMI type 16, 23 bytes
+Physical Memory Array
+Location: System Board Or Motherboard
+Use: System Memory
+Error Correction Type: Single-bit ECC
+Maximum Capacity: 128 GB
+Error Information Handle: Not Provided
+Number Of Devices: 4
+Handle 0x0008, DMI type 19, 31 bytes
+Memory Array Mapped Address
+Starting Address: 0x00000000000
+Ending Address: 0x001FFFFFFFF
+Range Size: 8 GB
+Physical Array Handle: 0x0007
+Partition Width: 4
+Handle 0x0009, DMI type 17, 40 bytes
+Memory Device
+Array Handle: 0x0007
+Error Information Handle: Not Provided
+Total Width: Unknown
+Data Width: Unknown
+Size: No Module Installed
+Form Factor: DIMM
+Set: None
+Locator: DIMM000 J1
+Bank Locator: SOCKET 0 CHANNEL 0 DIMM 0
+Type: Unknown
+Type Detail: Unknown Synchronous
+Speed: Unknown
+Manufacturer: NO DIMM
+Serial Number: NO DIMM
+Asset Tag: NO DIMM
+Part Number: NO DIMM
+Rank: Unknown
+Configured Clock Speed: Unknown
+Minimum Voltage: Unknown
+Maximum Voltage: Unknown
+Configured Voltage: Unknown
+Handle 0x000A, DMI type 17, 40 bytes
+Memory Device
+Array Handle: 0x0007
+Error Information Handle: Not Provided
+Total Width: Unknown
+Data Width: Unknown
+Size: No Module Installed
+Form Factor: DIMM
+Set: None
+Locator: DIMM001 J2
+Bank Locator: SOCKET 0 CHANNEL 0 DIMM 1
+Type: Unknown
+Type Detail: Unknown Synchronous
+Speed: Unknown
+Manufacturer: NO DIMM
+Serial Number: NO DIMM
+Asset Tag: NO DIMM
+Part Number: NO DIMM
+Rank: Unknown
+Configured Clock Speed: Unknown
+Minimum Voltage: Unknown
+Maximum Voltage: Unknown
+Configured Voltage: Unknown
+Handle 0x000B, DMI type 17, 40 bytes
+Memory Device
+Array Handle: 0x0007
+Error Information Handle: Not Provided
+Total Width: 72 bits
+Data Width: 64 bits
+Size: 8192 MB
+Form Factor: DIMM
+Set: None
+Locator: DIMM010 J3
+Bank Locator: SOCKET 0 CHANNEL 1 DIMM 0
+Type: DDR3
+Type Detail: Synchronous Registered (Buffered)
+Speed: 1600 MHz
+Manufacturer: Ramaxel
+Serial Number: 0x417532EB
+Asset Tag: Unknown
+Part Number: RMS6101ME68FAF1600
+Rank: 2
+Configured Clock Speed: 1600 MHz
+Minimum Voltage: 1.25 V
+Maximum Voltage: 1.5 V
+Configured Voltage: 1.35 V
+Handle 0x000C, DMI type 17, 40 bytes
+Memory Device
+Array Handle: 0x0007
+Error Information Handle: Not Provided
+Total Width: Unknown
+Data Width: Unknown
+Size: No Module Installed
+Form Factor: DIMM
+Set: None
+Locator: DIMM011 J4
+Bank Locator: SOCKET 0 CHANNEL 1 DIMM 1
+Type: Unknown
+Type Detail: Unknown Synchronous
+Speed: Unknown
+Manufacturer: NO DIMM
+Serial Number: NO DIMM
+Asset Tag: NO DIMM
+Part Number: NO DIMM
+Rank: Unknown
+Configured Clock Speed: Unknown
+Minimum Voltage: Unknown
+Maximum Voltage: Unknown
+Configured Voltage: Unknown
+Handle 0x000D, DMI type 7, 19 bytes
+Cache Information
+Socket Designation: L1 Instruction Cache
+Configuration: Enabled, Not Socketed, Level 1
+Operational Mode: Write Back
+Location: Internal
+Installed Size: 768 kB
+Maximum Size: 768 kB
+Supported SRAM Types:
+Synchronous
+Installed SRAM Type: Synchronous
+Speed: Unknown
+Error Correction Type: Parity
+System Type: Instruction
+Associativity: 8-way Set-associative
+Handle 0x000E, DMI type 7, 19 bytes
+Cache Information
+Socket Designation: L1 Data Cache
+Configuration: Enabled, Not Socketed, Level 1
+Operational Mode: Write Back
+Location: Internal
+Installed Size: 512 kB
+Maximum Size: 512 kB
+Supported SRAM Types:
+Synchronous
+Installed SRAM Type: Synchronous
+Speed: Unknown
+Error Correction Type: Single-bit ECC
+System Type: Data
+Associativity: 8-way Set-associative
+Handle 0x000F, DMI type 7, 19 bytes
+Cache Information
+Socket Designation: L2 Cache
+Configuration: Enabled, Not Socketed, Level 2
+Operational Mode: Varies With Memory Address
+Location: Internal
+Installed Size: 4096 kB
+Maximum Size: 4096 kB
+Supported SRAM Types:
+Synchronous
+Installed SRAM Type: Synchronous
+Speed: Unknown
+Error Correction Type: Single-bit ECC
+System Type: Unified
+Associativity: 8-way Set-associative
+Handle 0x0010, DMI type 7, 19 bytes
+Cache Information
+Socket Designation: L3 Cache
+Configuration: Enabled, Not Socketed, Level 3
+Operational Mode: Varies With Memory Address
+Location: Internal
+Installed Size: 16384 kB
+Maximum Size: 16384 kB
+Supported SRAM Types:
+Synchronous
+Installed SRAM Type: Synchronous
+Speed: Unknown
+Error Correction Type: Single-bit ECC
+System Type: Unified
+Associativity: 16-way Set-associative
+Handle 0x0011, DMI type 4, 48 bytes
+Processor Information
+Socket Designation: CPU01
+Type: Central Processor
+Family: Other
+Manufacturer: Hisilicon
+ID: 00 00 00 00 00 00 00 00
+Version: Hi1610ES
+Voltage: 0.9 V
+External Clock: 50 MHz
+Max Speed: 2100 MHz
+Current Speed: 2100 MHz
+Status: Populated, Enabled
+Upgrade: Unknown
+L1 Cache Handle: 0x000E
+L2 Cache Handle: 0x000F
+L3 Cache Handle: 0x0010
+Serial Number: To be filled by O.E.M.
+Asset Tag: To be filled by O.E.M.
+Part Number: To be filled by O.E.M.
+Core Count: 16
+Core Enabled: 16
+Thread Count: 16
+Characteristics:
+64-bit capable
+Multi-Core
+Execute Protection
+Enhanced Virtualization
+Power/Performance Control
+Handle 0xFEFF, DMI type 127, 4 bytes
+End Of Table
+<LAVA_SIGNAL_ENDRUN smoke_testing e77b3eb6-b794-4f61-8b14-ade5ae057a41>
+cho LAVA_ACK
+<LAVA_TEST_RUNNER>: 0_e77b3eb6-b794-4f61-8b14-ade5ae057a41 exited with: 0
+0_e77b3eb6-b794-4f61-8b14-ade5ae057a41-1478742407
+<LAVA_TEST_RUNNER>: calling sync on device
+e<LAVA_TEST_RUNNER>: exiting lava-test-runner
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+linaro-test [rc=0]# echo LAVA_ACK
+LAVA_ACK
+ 
+=============
+smoke_testing
+=============
+Test case                                  Result
+---------------------------------------- --------
+linux-linaro-pwd                             PASS
+linux-linaro-uname                           PASS
+linux-linaro-vmstat                          PASS
+linux-linaro-ipaddr                          PASS
+linux-linaro-lscpu                           PASS
+linux-linaro-lsb_release                     PASS
+linux-linaro-etc-issue                       PASS
+linux-linaro-cpuinfo                         PASS
+linux-linaro-meminfo                         PASS
+linux-linaro-dmesg                           PASS
+linux-linaro-ps                              PASS
+linux-linaro-issue                           PASS
+linux-linaro-interrupts                      PASS
+linux-linaro-boot-cmds                       PASS
+linux-linaro-device-info                     PASS
+linux-linaro-filesystem-info                 PASS
+linux-linaro-env                             PASS
+linux-linaro-lsmod                           PASS
+linux-linaro-cpu-info                        PASS
+linux-linaro-pci-info                        PASS
+linux-linaro-usb-info                        PASS
+kernel-space-sysfs-dmi-exist                 PASS
+kernel-space-sysfs-bios-date                 PASS
+kernel-space-sysfs-bios-vendor               PASS
+kernel-space-sysfs-bios-version              PASS
+user-space-dmidecode-smbios-present          FAIL
+user-space-dmidecode-bios-has-info           PASS
+user-space-dmidecode-system-has-info         PASS
+user-space-dmidecode-baseboard-has-info      PASS
+user-space-dmidecode-chassis-has-info        PASS
+user-space-dmidecode-processor-has-info      PASS
+user-space-dmidecode-memory-has-info         PASS
+user-space-dmidecode-cache-has-info          PASS
+user-space-dmidecode-connector-has-info      FAIL
+user-space-dmidecode-slot-has-info           FAIL
+lava-test-shell-run                          PASS

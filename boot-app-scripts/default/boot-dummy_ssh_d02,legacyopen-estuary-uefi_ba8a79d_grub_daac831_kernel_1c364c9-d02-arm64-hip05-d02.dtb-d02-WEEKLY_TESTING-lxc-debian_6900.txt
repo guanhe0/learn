@@ -1,0 +1,814 @@
+User root
+Port 22
+PasswordAuthentication no
+StrictHostKeyChecking no
+IdentityFile /var/lib/lava/dispatcher/tmp/tmpuA62U0/192.168.3.192_key
+ 
+ 
+ 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+7a:7c:7b:63:55:58:45:66:68:19:8a:ba:b1:1b:c5:6d.
+Please contact your system administrator.
+Add correct host key in /root/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /root/.ssh/known_hosts:14
+  remove with: ssh-keygen -f "/root/.ssh/known_hosts" -R 192.168.3.192
+Keyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Thu Nov 10 09:31:13 2016 from 192.168.3.100
+root@debian:~# 
+root@debian:~# export PS1="linaro-test [rc=$(echo \$?)]# "
+linaro-test [rc=0]# 
+ 
+mount
+/dev/sda2 on / type ext4 (rw,relatime,data=ordered)
+devtmpfs on /dev type devtmpfs (rw,relatime,size=4013736k,nr_inodes=1003434,mode=755)
+sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)
+proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)
+securityfs on /sys/kernel/security type securityfs (rw,nosuid,nodev,noexec,relatime)
+tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)
+devpts on /dev/pts type devpts (rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=000)
+tmpfs on /run type tmpfs (rw,nosuid,nodev,mode=755)
+tmpfs on /run/lock type tmpfs (rw,nosuid,nodev,noexec,relatime,size=5120k)
+tmpfs on /sys/fs/cgroup type tmpfs (ro,nosuid,nodev,noexec,mode=755)
+cgroup on /sys/fs/cgroup/systemd type cgroup (rw,nosuid,nodev,noexec,relatime,xattr,release_agent=/lib/systemd/systemd-cgroups-agent,name=systemd)
+pstore on /sys/fs/pstore type pstore (rw,nosuid,nodev,noexec,relatime)
+cgroup on /sys/fs/cgroup/cpuset type cgroup (rw,nosuid,nodev,noexec,relatime,cpuset)
+cgroup on /sys/fs/cgroup/cpu,cpuacct type cgroup (rw,nosuid,nodev,noexec,relatime,cpu,cpuacct)
+cgroup on /sys/fs/cgroup/blkio type cgroup (rw,nosuid,nodev,noexec,relatime,blkio)
+cgroup on /sys/fs/cgroup/memory type cgroup (rw,nosuid,nodev,noexec,relatime,memory)
+cgroup on /sys/fs/cgroup/devices type cgroup (rw,nosuid,nodev,noexec,relatime,devices)
+cgroup on /sys/fs/cgroup/freezer type cgroup (rw,nosuid,nodev,noexec,relatime,freezer)
+cgroup on /sys/fs/cgroup/net_cls,net_prio type cgroup (rw,nosuid,nodev,noexec,relatime,net_cls,net_prio)
+cgroup on /sys/fs/cgroup/perf_event type cgroup (rw,nosuid,nodev,noexec,relatime,perf_event)
+cgroup on /sys/fs/cgroup/hugetlb type cgroup (rw,nosuid,nodev,noexec,relatime,hugetlb)
+cgroup on /sys/fs/cgroup/pids type cgroup (rw,nosuid,nodev,noexec,relatime,pids)
+systemd-1 on /proc/sys/fs/binfmt_misc type autofs (rw,relatime,fd=23,pgrp=1,timeout=300,minproto=5,maxproto=5,direct)
+mqueue on /dev/mqueue type mqueue (rw,relatime)
+debugfs on /sys/kernel/debug type debugfs (rw,relatime)
+hugetlbfs on /dev/hugepages type hugetlbfs (rw,relatime)
+rpc_pipefs on /run/rpc_pipefs type rpc_pipefs (rw,relatime)
+ 
+df
+Filesystem     1K-blocks    Used Available Use% Mounted on
+/dev/root       47929224 3663648  41807824   9% /
+devtmpfs         4013736       0   4013736   0% /dev
+tmpfs            4079900       0   4079900   0% /dev/shm
+tmpfs            4079900    8468   4071432   1% /run
+tmpfs               5120       0      5120   0% /run/lock
+tmpfs            4079900       0   4079900   0% /sys/fs/cgroup
+ 
+ls /
+bin   dev  home		    lib		media  opt   root  sbin  sys  usr
+boot  etc  lava-d02_02_ssh  lost+found	mnt    proc  run   srv	 tmp  var
+ 
+ip addr
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 00:18:82:05:00:af brd ff:ff:ff:ff:ff:ff
+    inet 192.168.3.192/24 brd 192.168.3.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::218:82ff:fe05:af/64 scope link 
+       valid_lft forever preferred_lft forever
+3: eth4: <BROADCAST,MULTICAST> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether 00:18:82:04:00:af brd ff:ff:ff:ff:ff:ff
+4: eth6: <BROADCAST,MULTICAST> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether 00:18:82:00:00:af brd ff:ff:ff:ff:ff:ff
+5: eth7: <BROADCAST,MULTICAST> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether 00:18:82:01:00:af brd ff:ff:ff:ff:ff:ff
+ 
+test -e /proc/net/pnp
+ 
+test -s /etc/resolv.conf
+ 
+/lava-d02_02_ssh/bin/lava-test-runner /lava-d02_02_ssh
+/lava-d02_02_ssh
+<LAVA_TEST_RUNNER>: started
+<LAVA_TEST_RUNNER>: looking for work in /lava-d02_02_ssh/lava-test-runner.conf-1478742006
+<LAVA_TEST_RUNNER>: running 0_966a2604-b472-416d-a865-5662df4ad1a3 under lava-test-shell...
+<LAVA_TEST_RUNNER>: running 0_966a2604-b472-416d-a865-5662df4ad1a3 installer ...
++ cd /lava-d02_02_ssh/tests/0_966a2604-b472-416d-a865-5662df4ad1a3
++ lava-install-packages expect wget libvirt-bin lxc bridge-utils libvirt-bin debootstrap
+0% [Working]
+            
+Err http://debian.ustc.edu.cn jessie InRelease
+  
+            
+0% [Connecting to security.debian.org]
+                                      
+Err http://debian.ustc.edu.cn jessie-updates InRelease
+  
+0% [Connecting to security.debian.org]
+                                      
+Err http://debian.ustc.edu.cn jessie Release.gpg
+  Could not resolve 'debian.ustc.edu.cn'
+0% [Connecting to security.debian.org]
+                                      
+Err http://debian.ustc.edu.cn jessie-updates Release.gpg
+  Could not resolve 'debian.ustc.edu.cn'
+0% [Connecting to security.debian.org]
+                                      
+Err http://security.debian.org jessie/updates InRelease
+  
+                                      
+0% [Working]
+            
+Err http://security.debian.org jessie/updates Release.gpg
+  Could not resolve 'security.debian.org'
+0% [Working]
+            
+Reading package lists... 0%
+Reading package lists... 0%
+Reading package lists... 1%
+Reading package lists... 35%
+Reading package lists... 55%
+Reading package lists... 55%
+Reading package lists... 72%
+Reading package lists... 94%
+Reading package lists... 94%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 98%
+Reading package lists... 98%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... Done
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie/InRelease  
+W: Failed to fetch http://security.debian.org/dists/jessie/updates/InRelease  
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie-updates/InRelease  
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie/Release.gpg  Could not resolve 'debian.ustc.edu.cn'
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie-updates/Release.gpg  Could not resolve 'debian.ustc.edu.cn'
+W: Failed to fetch http://security.debian.org/dists/jessie/updates/Release.gpg  Could not resolve 'security.debian.org'
+W: Some index files failed to download. They have been ignored, or old ones used instead.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+wget is already the newest version.
+The following packages were automatically installed and are no longer required:
+  attr libasn1-8-heimdal libfile-copy-recursive-perl libhcrypto4-heimdal
+  libhdb9-heimdal libheimbase1-heimdal libhx509-5-heimdal libkrb5-26-heimdal
+  libldb1 libntdb1 libpython2.7 libroken18-heimdal libtalloc2 libtdb1
+  libtevent0 libwbclient0 libwind0-heimdal openbsd-inetd python-crypto
+  python-dnspython python-ldb python-ntdb python-samba python-talloc
+  python-tdb samba-common samba-common-bin samba-dsdb-modules samba-libs
+  samba-vfs-modules tdb-tools update-inetd
+Use 'apt-get autoremove' to remove them.
+The following extra packages will be installed:
+  augeas-lenses binfmt-support console-setup console-setup-linux dh-python
+  dmeventd dns-root-data dnsmasq-base ebtables ethtool hdparm ipxe-qemu kbd
+  keyboard-configuration libapparmor1 libasound2 libasound2-data libasyncns0
+  libaugeas0 libbluetooth3 libboost-system1.55.0 libboost-thread1.55.0
+  libbrlapi0.6 libcaca0 libdevmapper-event1.02.1 libdirectfb-1.2-9 libfdt1
+  libflac8 libiscsi2 liblvm2cmd2.02 libmpdec2 libnetcf1
+  libnetfilter-conntrack3 libnl-3-200 libnl-route-3-200 libnspr4 libnss3
+  libogg0 libpam-systemd libparted2 libpcap0.8 libpciaccess0
+  libpolkit-agent-1-0 libpolkit-backend-1-0 libpolkit-gobject-1-0 libpulse0
+  libpython3-stdlib libpython3.4-minimal libpython3.4-stdlib librados2 librbd1
+  libreadline5 libsdl1.2debian libsndfile1 libusbredirparser1 libvdeplug2
+  libvirt-clients libvirt-daemon libvirt-daemon-system libvirt0 libvorbis0a
+  libvorbisenc2 libxml2-utils libxslt1.1 libyajl2 lvm2 netcat-openbsd
+  openbios-ppc openbios-sparc openhackware parted pm-utils policykit-1
+  powermgmt-base python3 python3-minimal python3.4 python3.4-minimal qemu
+  qemu-slof qemu-system qemu-system-arm qemu-system-common qemu-system-mips
+  qemu-system-misc qemu-system-ppc qemu-system-sparc qemu-system-x86 qemu-user
+  qemu-user-binfmt qemu-utils rsync seabios sharutils xkb-data
+Suggested packages:
+  augeas-doc apmd libasound2-plugins alsa-utils augeas-tools libparted-dev
+  libparted-i18n pulseaudio radvd auditd systemtap apparmor
+  thin-provisioning-tools lua5.2 parted-doc cpufrequtils wireless-tools
+  radeontool python3-doc python3-tk python3-venv python3.4-venv python3.4-doc
+  binutils qemu-user-static samba vde2 sgabios ovmf sudo
+Recommended packages:
+  dmidecode vbetool
+The following NEW packages will be installed:
+  augeas-lenses binfmt-support bridge-utils console-setup console-setup-linux
+  debootstrap dh-python dmeventd dns-root-data dnsmasq-base ebtables ethtool
+  expect hdparm ipxe-qemu kbd keyboard-configuration libapparmor1 libasound2
+  libasound2-data libasyncns0 libaugeas0 libbluetooth3 libboost-system1.55.0
+  libboost-thread1.55.0 libbrlapi0.6 libcaca0 libdevmapper-event1.02.1
+  libdirectfb-1.2-9 libfdt1 libflac8 libiscsi2 liblvm2cmd2.02 libmpdec2
+  libnetcf1 libnetfilter-conntrack3 libnl-3-200 libnl-route-3-200 libnspr4
+  libnss3 libogg0 libpam-systemd libparted2 libpcap0.8 libpciaccess0
+  libpolkit-agent-1-0 libpolkit-backend-1-0 libpolkit-gobject-1-0 libpulse0
+  libpython3-stdlib libpython3.4-minimal libpython3.4-stdlib librados2 librbd1
+  libreadline5 libsdl1.2debian libsndfile1 libusbredirparser1 libvdeplug2
+  libvirt-bin libvirt-clients libvirt-daemon libvirt-daemon-system libvirt0
+  libvorbis0a libvorbisenc2 libxml2-utils libxslt1.1 libyajl2 lvm2 lxc
+  netcat-openbsd openbios-ppc openbios-sparc openhackware parted pm-utils
+  policykit-1 powermgmt-base python3 python3-minimal python3.4
+  python3.4-minimal qemu qemu-slof qemu-system qemu-system-arm
+  qemu-system-common qemu-system-mips qemu-system-misc qemu-system-ppc
+  qemu-system-sparc qemu-system-x86 qemu-user qemu-user-binfmt qemu-utils
+  rsync seabios sharutils xkb-data
+0 upgraded, 100 newly installed, 0 to remove and 0 not upgraded.
+Need to get 39.6 MB/39.7 MB of archives.
+After this operation, 218 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libnspr4 libnss3
+E: There are problems and -y was used without --force-yes
+=================================================
+(0) Install failed... Retrying after some seconds
+=================================================
+0% [Working]
+            
+Err http://debian.ustc.edu.cn jessie InRelease
+  
+            
+0% [Connecting to security.debian.org]
+                                      
+Err http://debian.ustc.edu.cn jessie-updates InRelease
+  
+0% [Connecting to security.debian.org]
+                                      
+Err http://debian.ustc.edu.cn jessie Release.gpg
+  Could not resolve 'debian.ustc.edu.cn'
+0% [Connecting to security.debian.org]
+                                      
+Err http://debian.ustc.edu.cn jessie-updates Release.gpg
+  Could not resolve 'debian.ustc.edu.cn'
+0% [Connecting to security.debian.org]
+                                      
+Err http://security.debian.org jessie/updates InRelease
+  
+                                      
+0% [Working]
+            
+Err http://security.debian.org jessie/updates Release.gpg
+  Could not resolve 'security.debian.org'
+0% [Working]
+            
+Reading package lists... 0%
+Reading package lists... 0%
+Reading package lists... 1%
+Reading package lists... 35%
+Reading package lists... 55%
+Reading package lists... 55%
+Reading package lists... 72%
+Reading package lists... 94%
+Reading package lists... 94%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 98%
+Reading package lists... 98%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... Done
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie/InRelease  
+W: Failed to fetch http://security.debian.org/dists/jessie/updates/InRelease  
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie-updates/InRelease  
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie/Release.gpg  Could not resolve 'debian.ustc.edu.cn'
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie-updates/Release.gpg  Could not resolve 'debian.ustc.edu.cn'
+W: Failed to fetch http://security.debian.org/dists/jessie/updates/Release.gpg  Could not resolve 'security.debian.org'
+W: Some index files failed to download. They have been ignored, or old ones used instead.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+wget is already the newest version.
+The following packages were automatically installed and are no longer required:
+  attr libasn1-8-heimdal libfile-copy-recursive-perl libhcrypto4-heimdal
+  libhdb9-heimdal libheimbase1-heimdal libhx509-5-heimdal libkrb5-26-heimdal
+  libldb1 libntdb1 libpython2.7 libroken18-heimdal libtalloc2 libtdb1
+  libtevent0 libwbclient0 libwind0-heimdal openbsd-inetd python-crypto
+  python-dnspython python-ldb python-ntdb python-samba python-talloc
+  python-tdb samba-common samba-common-bin samba-dsdb-modules samba-libs
+  samba-vfs-modules tdb-tools update-inetd
+Use 'apt-get autoremove' to remove them.
+The following extra packages will be installed:
+  augeas-lenses binfmt-support console-setup console-setup-linux dh-python
+  dmeventd dns-root-data dnsmasq-base ebtables ethtool hdparm ipxe-qemu kbd
+  keyboard-configuration libapparmor1 libasound2 libasound2-data libasyncns0
+  libaugeas0 libbluetooth3 libboost-system1.55.0 libboost-thread1.55.0
+  libbrlapi0.6 libcaca0 libdevmapper-event1.02.1 libdirectfb-1.2-9 libfdt1
+  libflac8 libiscsi2 liblvm2cmd2.02 libmpdec2 libnetcf1
+  libnetfilter-conntrack3 libnl-3-200 libnl-route-3-200 libnspr4 libnss3
+  libogg0 libpam-systemd libparted2 libpcap0.8 libpciaccess0
+  libpolkit-agent-1-0 libpolkit-backend-1-0 libpolkit-gobject-1-0 libpulse0
+  libpython3-stdlib libpython3.4-minimal libpython3.4-stdlib librados2 librbd1
+  libreadline5 libsdl1.2debian libsndfile1 libusbredirparser1 libvdeplug2
+  libvirt-clients libvirt-daemon libvirt-daemon-system libvirt0 libvorbis0a
+  libvorbisenc2 libxml2-utils libxslt1.1 libyajl2 lvm2 netcat-openbsd
+  openbios-ppc openbios-sparc openhackware parted pm-utils policykit-1
+  powermgmt-base python3 python3-minimal python3.4 python3.4-minimal qemu
+  qemu-slof qemu-system qemu-system-arm qemu-system-common qemu-system-mips
+  qemu-system-misc qemu-system-ppc qemu-system-sparc qemu-system-x86 qemu-user
+  qemu-user-binfmt qemu-utils rsync seabios sharutils xkb-data
+Suggested packages:
+  augeas-doc apmd libasound2-plugins alsa-utils augeas-tools libparted-dev
+  libparted-i18n pulseaudio radvd auditd systemtap apparmor
+  thin-provisioning-tools lua5.2 parted-doc cpufrequtils wireless-tools
+  radeontool python3-doc python3-tk python3-venv python3.4-venv python3.4-doc
+  binutils qemu-user-static samba vde2 sgabios ovmf sudo
+Recommended packages:
+  dmidecode vbetool
+The following NEW packages will be installed:
+  augeas-lenses binfmt-support bridge-utils console-setup console-setup-linux
+  debootstrap dh-python dmeventd dns-root-data dnsmasq-base ebtables ethtool
+  expect hdparm ipxe-qemu kbd keyboard-configuration libapparmor1 libasound2
+  libasound2-data libasyncns0 libaugeas0 libbluetooth3 libboost-system1.55.0
+  libboost-thread1.55.0 libbrlapi0.6 libcaca0 libdevmapper-event1.02.1
+  libdirectfb-1.2-9 libfdt1 libflac8 libiscsi2 liblvm2cmd2.02 libmpdec2
+  libnetcf1 libnetfilter-conntrack3 libnl-3-200 libnl-route-3-200 libnspr4
+  libnss3 libogg0 libpam-systemd libparted2 libpcap0.8 libpciaccess0
+  libpolkit-agent-1-0 libpolkit-backend-1-0 libpolkit-gobject-1-0 libpulse0
+  libpython3-stdlib libpython3.4-minimal libpython3.4-stdlib librados2 librbd1
+  libreadline5 libsdl1.2debian libsndfile1 libusbredirparser1 libvdeplug2
+  libvirt-bin libvirt-clients libvirt-daemon libvirt-daemon-system libvirt0
+  libvorbis0a libvorbisenc2 libxml2-utils libxslt1.1 libyajl2 lvm2 lxc
+  netcat-openbsd openbios-ppc openbios-sparc openhackware parted pm-utils
+  policykit-1 powermgmt-base python3 python3-minimal python3.4
+  python3.4-minimal qemu qemu-slof qemu-system qemu-system-arm
+  qemu-system-common qemu-system-mips qemu-system-misc qemu-system-ppc
+  qemu-system-sparc qemu-system-x86 qemu-user qemu-user-binfmt qemu-utils
+  rsync seabios sharutils xkb-data
+0 upgraded, 100 newly installed, 0 to remove and 0 not upgraded.
+Need to get 39.6 MB/39.7 MB of archives.
+After this operation, 218 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libnspr4 libnss3
+E: There are problems and -y was used without --force-yes
+=================================================
+(1) Install failed... Retrying after some seconds
+=================================================
+0% [Working]
+            
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+                                                                         
+Err http://debian.ustc.edu.cn jessie InRelease
+  
+                                                                         
+0% [Connecting to security.debian.org]
+                                      
+Err http://debian.ustc.edu.cn jessie-updates InRelease
+  
+0% [Connecting to security.debian.org]
+                                      
+Err http://debian.ustc.edu.cn jessie Release.gpg
+  Could not resolve 'debian.ustc.edu.cn'
+0% [Connecting to security.debian.org]
+                                      
+Err http://debian.ustc.edu.cn jessie-updates Release.gpg
+  Could not resolve 'debian.ustc.edu.cn'
+0% [Connecting to security.debian.org]
+                                      
+Err http://security.debian.org jessie/updates InRelease
+  
+                                      
+0% [Working]
+            
+Err http://security.debian.org jessie/updates Release.gpg
+  Could not resolve 'security.debian.org'
+0% [Working]
+            
+Reading package lists... 0%
+Reading package lists... 0%
+Reading package lists... 1%
+Reading package lists... 35%
+Reading package lists... 55%
+Reading package lists... 55%
+Reading package lists... 73%
+Reading package lists... 94%
+Reading package lists... 94%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 98%
+Reading package lists... 98%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... Done
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie/InRelease  
+W: Failed to fetch http://security.debian.org/dists/jessie/updates/InRelease  
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie-updates/InRelease  
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie/Release.gpg  Could not resolve 'debian.ustc.edu.cn'
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie-updates/Release.gpg  Could not resolve 'debian.ustc.edu.cn'
+W: Failed to fetch http://security.debian.org/dists/jessie/updates/Release.gpg  Could not resolve 'security.debian.org'
+W: Some index files failed to download. They have been ignored, or old ones used instead.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+wget is already the newest version.
+The following packages were automatically installed and are no longer required:
+  attr libasn1-8-heimdal libfile-copy-recursive-perl libhcrypto4-heimdal
+  libhdb9-heimdal libheimbase1-heimdal libhx509-5-heimdal libkrb5-26-heimdal
+  libldb1 libntdb1 libpython2.7 libroken18-heimdal libtalloc2 libtdb1
+  libtevent0 libwbclient0 libwind0-heimdal openbsd-inetd python-crypto
+  python-dnspython python-ldb python-ntdb python-samba python-talloc
+  python-tdb samba-common samba-common-bin samba-dsdb-modules samba-libs
+  samba-vfs-modules tdb-tools update-inetd
+Use 'apt-get autoremove' to remove them.
+The following extra packages will be installed:
+  augeas-lenses binfmt-support console-setup console-setup-linux dh-python
+  dmeventd dns-root-data dnsmasq-base ebtables ethtool hdparm ipxe-qemu kbd
+  keyboard-configuration libapparmor1 libasound2 libasound2-data libasyncns0
+  libaugeas0 libbluetooth3 libboost-system1.55.0 libboost-thread1.55.0
+  libbrlapi0.6 libcaca0 libdevmapper-event1.02.1 libdirectfb-1.2-9 libfdt1
+  libflac8 libiscsi2 liblvm2cmd2.02 libmpdec2 libnetcf1
+  libnetfilter-conntrack3 libnl-3-200 libnl-route-3-200 libnspr4 libnss3
+  libogg0 libpam-systemd libparted2 libpcap0.8 libpciaccess0
+  libpolkit-agent-1-0 libpolkit-backend-1-0 libpolkit-gobject-1-0 libpulse0
+  libpython3-stdlib libpython3.4-minimal libpython3.4-stdlib librados2 librbd1
+  libreadline5 libsdl1.2debian libsndfile1 libusbredirparser1 libvdeplug2
+  libvirt-clients libvirt-daemon libvirt-daemon-system libvirt0 libvorbis0a
+  libvorbisenc2 libxml2-utils libxslt1.1 libyajl2 lvm2 netcat-openbsd
+  openbios-ppc openbios-sparc openhackware parted pm-utils policykit-1
+  powermgmt-base python3 python3-minimal python3.4 python3.4-minimal qemu
+  qemu-slof qemu-system qemu-system-arm qemu-system-common qemu-system-mips
+  qemu-system-misc qemu-system-ppc qemu-system-sparc qemu-system-x86 qemu-user
+  qemu-user-binfmt qemu-utils rsync seabios sharutils xkb-data
+Suggested packages:
+  augeas-doc apmd libasound2-plugins alsa-utils augeas-tools libparted-dev
+  libparted-i18n pulseaudio radvd auditd systemtap apparmor
+  thin-provisioning-tools lua5.2 parted-doc cpufrequtils wireless-tools
+  radeontool python3-doc python3-tk python3-venv python3.4-venv python3.4-doc
+  binutils qemu-user-static samba vde2 sgabios ovmf sudo
+Recommended packages:
+  dmidecode vbetool
+The following NEW packages will be installed:
+  augeas-lenses binfmt-support bridge-utils console-setup console-setup-linux
+  debootstrap dh-python dmeventd dns-root-data dnsmasq-base ebtables ethtool
+  expect hdparm ipxe-qemu kbd keyboard-configuration libapparmor1 libasound2
+  libasound2-data libasyncns0 libaugeas0 libbluetooth3 libboost-system1.55.0
+  libboost-thread1.55.0 libbrlapi0.6 libcaca0 libdevmapper-event1.02.1
+  libdirectfb-1.2-9 libfdt1 libflac8 libiscsi2 liblvm2cmd2.02 libmpdec2
+  libnetcf1 libnetfilter-conntrack3 libnl-3-200 libnl-route-3-200 libnspr4
+  libnss3 libogg0 libpam-systemd libparted2 libpcap0.8 libpciaccess0
+  libpolkit-agent-1-0 libpolkit-backend-1-0 libpolkit-gobject-1-0 libpulse0
+  libpython3-stdlib libpython3.4-minimal libpython3.4-stdlib librados2 librbd1
+  libreadline5 libsdl1.2debian libsndfile1 libusbredirparser1 libvdeplug2
+  libvirt-bin libvirt-clients libvirt-daemon libvirt-daemon-system libvirt0
+  libvorbis0a libvorbisenc2 libxml2-utils libxslt1.1 libyajl2 lvm2 lxc
+  netcat-openbsd openbios-ppc openbios-sparc openhackware parted pm-utils
+  policykit-1 powermgmt-base python3 python3-minimal python3.4
+  python3.4-minimal qemu qemu-slof qemu-system qemu-system-arm
+  qemu-system-common qemu-system-mips qemu-system-misc qemu-system-ppc
+  qemu-system-sparc qemu-system-x86 qemu-user qemu-user-binfmt qemu-utils
+  rsync seabios sharutils xkb-data
+0 upgraded, 100 newly installed, 0 to remove and 0 not upgraded.
+Need to get 39.6 MB/39.7 MB of archives.
+After this operation, 218 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libnspr4 libnss3
+E: There are problems and -y was used without --force-yes
+=================================================
+(2) Install failed... Retrying after some seconds
+=================================================
+0% [Working]
+            
+Err http://security.debian.org jessie/updates InRelease
+  
+            
+0% [Connecting to debian.ustc.edu.cn]
+                                     
+Err http://security.debian.org jessie/updates Release.gpg
+  Could not resolve 'security.debian.org'
+0% [Connecting to debian.ustc.edu.cn]
+                                     
+Err http://debian.ustc.edu.cn jessie InRelease
+  
+                                     
+0% [Working]
+            
+Err http://debian.ustc.edu.cn jessie-updates InRelease
+  
+0% [Working]
+            
+Err http://debian.ustc.edu.cn jessie Release.gpg
+  Could not resolve 'debian.ustc.edu.cn'
+0% [Working]
+            
+Err http://debian.ustc.edu.cn jessie-updates Release.gpg
+  Could not resolve 'debian.ustc.edu.cn'
+0% [Working]
+            
+Reading package lists... 0%
+Reading package lists... 0%
+Reading package lists... 1%
+Reading package lists... 35%
+Reading package lists... 55%
+Reading package lists... 55%
+Reading package lists... 73%
+Reading package lists... 94%
+Reading package lists... 94%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 98%
+Reading package lists... 98%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... Done
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie/InRelease  
+W: Failed to fetch http://security.debian.org/dists/jessie/updates/InRelease  
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie-updates/InRelease  
+W: Failed to fetch http://security.debian.org/dists/jessie/updates/Release.gpg  Could not resolve 'security.debian.org'
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie/Release.gpg  Could not resolve 'debian.ustc.edu.cn'
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie-updates/Release.gpg  Could not resolve 'debian.ustc.edu.cn'
+W: Some index files failed to download. They have been ignored, or old ones used instead.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+wget is already the newest version.
+The following packages were automatically installed and are no longer required:
+  attr libasn1-8-heimdal libfile-copy-recursive-perl libhcrypto4-heimdal
+  libhdb9-heimdal libheimbase1-heimdal libhx509-5-heimdal libkrb5-26-heimdal
+  libldb1 libntdb1 libpython2.7 libroken18-heimdal libtalloc2 libtdb1
+  libtevent0 libwbclient0 libwind0-heimdal openbsd-inetd python-crypto
+  python-dnspython python-ldb python-ntdb python-samba python-talloc
+  python-tdb samba-common samba-common-bin samba-dsdb-modules samba-libs
+  samba-vfs-modules tdb-tools update-inetd
+Use 'apt-get autoremove' to remove them.
+The following extra packages will be installed:
+  augeas-lenses binfmt-support console-setup console-setup-linux dh-python
+  dmeventd dns-root-data dnsmasq-base ebtables ethtool hdparm ipxe-qemu kbd
+  keyboard-configuration libapparmor1 libasound2 libasound2-data libasyncns0
+  libaugeas0 libbluetooth3 libboost-system1.55.0 libboost-thread1.55.0
+  libbrlapi0.6 libcaca0 libdevmapper-event1.02.1 libdirectfb-1.2-9 libfdt1
+  libflac8 libiscsi2 liblvm2cmd2.02 libmpdec2 libnetcf1
+  libnetfilter-conntrack3 libnl-3-200 libnl-route-3-200 libnspr4 libnss3
+  libogg0 libpam-systemd libparted2 libpcap0.8 libpciaccess0
+  libpolkit-agent-1-0 libpolkit-backend-1-0 libpolkit-gobject-1-0 libpulse0
+  libpython3-stdlib libpython3.4-minimal libpython3.4-stdlib librados2 librbd1
+  libreadline5 libsdl1.2debian libsndfile1 libusbredirparser1 libvdeplug2
+  libvirt-clients libvirt-daemon libvirt-daemon-system libvirt0 libvorbis0a
+  libvorbisenc2 libxml2-utils libxslt1.1 libyajl2 lvm2 netcat-openbsd
+  openbios-ppc openbios-sparc openhackware parted pm-utils policykit-1
+  powermgmt-base python3 python3-minimal python3.4 python3.4-minimal qemu
+  qemu-slof qemu-system qemu-system-arm qemu-system-common qemu-system-mips
+  qemu-system-misc qemu-system-ppc qemu-system-sparc qemu-system-x86 qemu-user
+  qemu-user-binfmt qemu-utils rsync seabios sharutils xkb-data
+Suggested packages:
+  augeas-doc apmd libasound2-plugins alsa-utils augeas-tools libparted-dev
+  libparted-i18n pulseaudio radvd auditd systemtap apparmor
+  thin-provisioning-tools lua5.2 parted-doc cpufrequtils wireless-tools
+  radeontool python3-doc python3-tk python3-venv python3.4-venv python3.4-doc
+  binutils qemu-user-static samba vde2 sgabios ovmf sudo
+Recommended packages:
+  dmidecode vbetool
+The following NEW packages will be installed:
+  augeas-lenses binfmt-support bridge-utils console-setup console-setup-linux
+  debootstrap dh-python dmeventd dns-root-data dnsmasq-base ebtables ethtool
+  expect hdparm ipxe-qemu kbd keyboard-configuration libapparmor1 libasound2
+  libasound2-data libasyncns0 libaugeas0 libbluetooth3 libboost-system1.55.0
+  libboost-thread1.55.0 libbrlapi0.6 libcaca0 libdevmapper-event1.02.1
+  libdirectfb-1.2-9 libfdt1 libflac8 libiscsi2 liblvm2cmd2.02 libmpdec2
+  libnetcf1 libnetfilter-conntrack3 libnl-3-200 libnl-route-3-200 libnspr4
+  libnss3 libogg0 libpam-systemd libparted2 libpcap0.8 libpciaccess0
+  libpolkit-agent-1-0 libpolkit-backend-1-0 libpolkit-gobject-1-0 libpulse0
+  libpython3-stdlib libpython3.4-minimal libpython3.4-stdlib librados2 librbd1
+  libreadline5 libsdl1.2debian libsndfile1 libusbredirparser1 libvdeplug2
+  libvirt-bin libvirt-clients libvirt-daemon libvirt-daemon-system libvirt0
+  libvorbis0a libvorbisenc2 libxml2-utils libxslt1.1 libyajl2 lvm2 lxc
+  netcat-openbsd openbios-ppc openbios-sparc openhackware parted pm-utils
+  policykit-1 powermgmt-base python3 python3-minimal python3.4
+  python3.4-minimal qemu qemu-slof qemu-system qemu-system-arm
+  qemu-system-common qemu-system-mips qemu-system-misc qemu-system-ppc
+  qemu-system-sparc qemu-system-x86 qemu-user qemu-user-binfmt qemu-utils
+  rsync seabios sharutils xkb-data
+0 upgraded, 100 newly installed, 0 to remove and 0 not upgraded.
+Need to get 39.6 MB/39.7 MB of archives.
+After this operation, 218 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libnspr4 libnss3
+E: There are problems and -y was used without --force-yes
+=================================================
+(3) Install failed... Retrying after some seconds
+=================================================
+0% [Working]
+            
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+                                                                         
+Err http://debian.ustc.edu.cn jessie InRelease
+  
+                                                                         
+0% [Connecting to security.debian.org]
+                                      
+Err http://debian.ustc.edu.cn jessie-updates InRelease
+  
+0% [Connecting to security.debian.org]
+                                      
+Err http://debian.ustc.edu.cn jessie Release.gpg
+  Could not resolve 'debian.ustc.edu.cn'
+0% [Connecting to security.debian.org]
+                                      
+Err http://debian.ustc.edu.cn jessie-updates Release.gpg
+  Could not resolve 'debian.ustc.edu.cn'
+0% [Connecting to security.debian.org]
+                                      
+Err http://security.debian.org jessie/updates InRelease
+  
+                                      
+0% [Working]
+            
+Err http://security.debian.org jessie/updates Release.gpg
+  Could not resolve 'security.debian.org'
+0% [Working]
+            
+Reading package lists... 0%
+Reading package lists... 0%
+Reading package lists... 1%
+Reading package lists... 35%
+Reading package lists... 55%
+Reading package lists... 55%
+Reading package lists... 72%
+Reading package lists... 94%
+Reading package lists... 94%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 98%
+Reading package lists... 98%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... Done
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie/InRelease  
+W: Failed to fetch http://security.debian.org/dists/jessie/updates/InRelease  
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie-updates/InRelease  
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie/Release.gpg  Could not resolve 'debian.ustc.edu.cn'
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie-updates/Release.gpg  Could not resolve 'debian.ustc.edu.cn'
+W: Failed to fetch http://security.debian.org/dists/jessie/updates/Release.gpg  Could not resolve 'security.debian.org'
+W: Some index files failed to download. They have been ignored, or old ones used instead.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+wget is already the newest version.
+The following packages were automatically installed and are no longer required:
+  attr libasn1-8-heimdal libfile-copy-recursive-perl libhcrypto4-heimdal
+  libhdb9-heimdal libheimbase1-heimdal libhx509-5-heimdal libkrb5-26-heimdal
+  libldb1 libntdb1 libpython2.7 libroken18-heimdal libtalloc2 libtdb1
+  libtevent0 libwbclient0 libwind0-heimdal openbsd-inetd python-crypto
+  python-dnspython python-ldb python-ntdb python-samba python-talloc
+  python-tdb samba-common samba-common-bin samba-dsdb-modules samba-libs
+  samba-vfs-modules tdb-tools update-inetd
+Use 'apt-get autoremove' to remove them.
+The following extra packages will be installed:
+  augeas-lenses binfmt-support console-setup console-setup-linux dh-python
+  dmeventd dns-root-data dnsmasq-base ebtables ethtool hdparm ipxe-qemu kbd
+  keyboard-configuration libapparmor1 libasound2 libasound2-data libasyncns0
+  libaugeas0 libbluetooth3 libboost-system1.55.0 libboost-thread1.55.0
+  libbrlapi0.6 libcaca0 libdevmapper-event1.02.1 libdirectfb-1.2-9 libfdt1
+  libflac8 libiscsi2 liblvm2cmd2.02 libmpdec2 libnetcf1
+  libnetfilter-conntrack3 libnl-3-200 libnl-route-3-200 libnspr4 libnss3
+  libogg0 libpam-systemd libparted2 libpcap0.8 libpciaccess0
+  libpolkit-agent-1-0 libpolkit-backend-1-0 libpolkit-gobject-1-0 libpulse0
+  libpython3-stdlib libpython3.4-minimal libpython3.4-stdlib librados2 librbd1
+  libreadline5 libsdl1.2debian libsndfile1 libusbredirparser1 libvdeplug2
+  libvirt-clients libvirt-daemon libvirt-daemon-system libvirt0 libvorbis0a
+  libvorbisenc2 libxml2-utils libxslt1.1 libyajl2 lvm2 netcat-openbsd
+  openbios-ppc openbios-sparc openhackware parted pm-utils policykit-1
+  powermgmt-base python3 python3-minimal python3.4 python3.4-minimal qemu
+  qemu-slof qemu-system qemu-system-arm qemu-system-common qemu-system-mips
+  qemu-system-misc qemu-system-ppc qemu-system-sparc qemu-system-x86 qemu-user
+  qemu-user-binfmt qemu-utils rsync seabios sharutils xkb-data
+Suggested packages:
+  augeas-doc apmd libasound2-plugins alsa-utils augeas-tools libparted-dev
+  libparted-i18n pulseaudio radvd auditd systemtap apparmor
+  thin-provisioning-tools lua5.2 parted-doc cpufrequtils wireless-tools
+  radeontool python3-doc python3-tk python3-venv python3.4-venv python3.4-doc
+  binutils qemu-user-static samba vde2 sgabios ovmf sudo
+Recommended packages:
+  dmidecode vbetool
+The following NEW packages will be installed:
+  augeas-lenses binfmt-support bridge-utils console-setup console-setup-linux
+  debootstrap dh-python dmeventd dns-root-data dnsmasq-base ebtables ethtool
+  expect hdparm ipxe-qemu kbd keyboard-configuration libapparmor1 libasound2
+  libasound2-data libasyncns0 libaugeas0 libbluetooth3 libboost-system1.55.0
+  libboost-thread1.55.0 libbrlapi0.6 libcaca0 libdevmapper-event1.02.1
+  libdirectfb-1.2-9 libfdt1 libflac8 libiscsi2 liblvm2cmd2.02 libmpdec2
+  libnetcf1 libnetfilter-conntrack3 libnl-3-200 libnl-route-3-200 libnspr4
+  libnss3 libogg0 libpam-systemd libparted2 libpcap0.8 libpciaccess0
+  libpolkit-agent-1-0 libpolkit-backend-1-0 libpolkit-gobject-1-0 libpulse0
+  libpython3-stdlib libpython3.4-minimal libpython3.4-stdlib librados2 librbd1
+  libreadline5 libsdl1.2debian libsndfile1 libusbredirparser1 libvdeplug2
+  libvirt-bin libvirt-clients libvirt-daemon libvirt-daemon-system libvirt0
+  libvorbis0a libvorbisenc2 libxml2-utils libxslt1.1 libyajl2 lvm2 lxc
+  netcat-openbsd openbios-ppc openbios-sparc openhackware parted pm-utils
+  policykit-1 powermgmt-base python3 python3-minimal python3.4
+  python3.4-minimal qemu qemu-slof qemu-system qemu-system-arm
+  qemu-system-common qemu-system-mips qemu-system-misc qemu-system-ppc
+  qemu-system-sparc qemu-system-x86 qemu-user qemu-user-binfmt qemu-utils
+  rsync seabios sharutils xkb-data
+0 upgraded, 100 newly installed, 0 to remove and 0 not upgraded.
+Need to get 39.6 MB/39.7 MB of archives.
+After this operation, 218 MB of additional disk space will be used.
+WARNING: The following packages cannot be authenticated!
+  libnspr4 libnss3
+E: There are problems and -y was used without --force-yes
+<LAVA_TEST_RUNNER>: 0_966a2604-b472-416d-a865-5662df4ad1a3 installer failed, skipping
+0_966a2604-b472-416d-a865-5662df4ad1a3-1478742006
+<LAVA_TEST_RUNNER>: calling sync on device
+<LAVA_TEST_RUNNER>: exiting lava-test-runner
+===
+lxc
+===
+Test case                                  Result
+---------------------------------------- --------
+lava-test-shell-install                      FAIL
