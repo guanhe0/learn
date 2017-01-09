@@ -1,0 +1,766 @@
+User root
+Port 22
+PasswordAuthentication no
+StrictHostKeyChecking no
+IdentityFile /var/lib/lava/dispatcher/tmp/tmpPdYWW0/192.168.3.192_key
+ 
+ 
+ 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+7a:7c:7b:63:55:58:45:66:68:19:8a:ba:b1:1b:c5:6d.
+Please contact your system administrator.
+Add correct host key in /root/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /root/.ssh/known_hosts:14
+  remove with: ssh-keygen -f "/root/.ssh/known_hosts" -R 192.168.3.192
+Keyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Thu Nov 10 09:49:53 2016 from 192.168.3.100
+eroot@debian:~# 
+root@debian:~# export PS1="linaro-test [rc=$(echo \$?)]# "
+linaro-test [rc=0]# 
+ 
+mount
+/dev/sda2 on / type ext4 (rw,relatime,data=ordered)
+devtmpfs on /dev type devtmpfs (rw,relatime,size=4013736k,nr_inodes=1003434,mode=755)
+sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)
+proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)
+securityfs on /sys/kernel/security type securityfs (rw,nosuid,nodev,noexec,relatime)
+tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)
+devpts on /dev/pts type devpts (rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=000)
+tmpfs on /run type tmpfs (rw,nosuid,nodev,mode=755)
+tmpfs on /run/lock type tmpfs (rw,nosuid,nodev,noexec,relatime,size=5120k)
+tmpfs on /sys/fs/cgroup type tmpfs (ro,nosuid,nodev,noexec,mode=755)
+cgroup on /sys/fs/cgroup/systemd type cgroup (rw,nosuid,nodev,noexec,relatime,xattr,release_agent=/lib/systemd/systemd-cgroups-agent,name=systemd)
+pstore on /sys/fs/pstore type pstore (rw,nosuid,nodev,noexec,relatime)
+cgroup on /sys/fs/cgroup/cpuset type cgroup (rw,nosuid,nodev,noexec,relatime,cpuset)
+cgroup on /sys/fs/cgroup/cpu,cpuacct type cgroup (rw,nosuid,nodev,noexec,relatime,cpu,cpuacct)
+cgroup on /sys/fs/cgroup/blkio type cgroup (rw,nosuid,nodev,noexec,relatime,blkio)
+cgroup on /sys/fs/cgroup/memory type cgroup (rw,nosuid,nodev,noexec,relatime,memory)
+cgroup on /sys/fs/cgroup/devices type cgroup (rw,nosuid,nodev,noexec,relatime,devices)
+cgroup on /sys/fs/cgroup/freezer type cgroup (rw,nosuid,nodev,noexec,relatime,freezer)
+cgroup on /sys/fs/cgroup/net_cls,net_prio type cgroup (rw,nosuid,nodev,noexec,relatime,net_cls,net_prio)
+cgroup on /sys/fs/cgroup/perf_event type cgroup (rw,nosuid,nodev,noexec,relatime,perf_event)
+cgroup on /sys/fs/cgroup/hugetlb type cgroup (rw,nosuid,nodev,noexec,relatime,hugetlb)
+cgroup on /sys/fs/cgroup/pids type cgroup (rw,nosuid,nodev,noexec,relatime,pids)
+systemd-1 on /proc/sys/fs/binfmt_misc type autofs (rw,relatime,fd=23,pgrp=1,timeout=300,minproto=5,maxproto=5,direct)
+mqueue on /dev/mqueue type mqueue (rw,relatime)
+debugfs on /sys/kernel/debug type debugfs (rw,relatime)
+hugetlbfs on /dev/hugepages type hugetlbfs (rw,relatime)
+rpc_pipefs on /run/rpc_pipefs type rpc_pipefs (rw,relatime)
+ 
+df
+Filesystem     1K-blocks    Used Available Use% Mounted on
+/dev/root       47929224 3664332  41807140   9% /
+devtmpfs         4013736       0   4013736   0% /dev
+tmpfs            4079900       0   4079900   0% /dev/shm
+tmpfs            4079900    8468   4071432   1% /run
+tmpfs               5120       0      5120   0% /run/lock
+tmpfs            4079900       0   4079900   0% /sys/fs/cgroup
+ 
+ls /
+bin   dev  home		    lib		media  opt   root  sbin  sys  usr
+boot  etc  lava-d02_02_ssh  lost+found	mnt    proc  run   srv	 tmp  var
+ 
+ip addr
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 00:18:82:05:00:af brd ff:ff:ff:ff:ff:ff
+    inet 192.168.3.192/24 brd 192.168.3.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::218:82ff:fe05:af/64 scope link 
+       valid_lft forever preferred_lft forever
+3: eth4: <BROADCAST,MULTICAST> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether 00:18:82:04:00:af brd ff:ff:ff:ff:ff:ff
+4: eth6: <BROADCAST,MULTICAST> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether 00:18:82:00:00:af brd ff:ff:ff:ff:ff:ff
+5: eth7: <BROADCAST,MULTICAST> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether 00:18:82:01:00:af brd ff:ff:ff:ff:ff:ff
+ 
+test -e /proc/net/pnp
+ 
+test -s /etc/resolv.conf
+ 
+/lava-d02_02_ssh/bin/lava-test-runner /lava-d02_02_ssh
+/lava-d02_02_ssh
+<LAVA_TEST_RUNNER>: started
+<LAVA_TEST_RUNNER>: looking for work in /lava-d02_02_ssh/lava-test-runner.conf-1478743084
+<LAVA_TEST_RUNNER>: running 0_75c3cacd-ae09-4c89-9fb7-a15f245cef96 under lava-test-shell...
+<LAVA_TEST_RUNNER>: running 0_75c3cacd-ae09-4c89-9fb7-a15f245cef96 installer ...
++ cd /lava-d02_02_ssh/tests/0_75c3cacd-ae09-4c89-9fb7-a15f245cef96
++ lava-install-packages hdparm
+0% [Working]
+            
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+                                                                         
+Err http://security.debian.org jessie/updates InRelease
+  
+                                                                         
+0% [Connecting to debian.ustc.edu.cn]
+                                     
+Err http://debian.ustc.edu.cn jessie InRelease
+  
+                                     
+Err http://debian.ustc.edu.cn jessie-updates InRelease
+  
+                                     
+0% [Working]
+            
+Err http://security.debian.org jessie/updates Release.gpg
+  Could not resolve 'security.debian.org'
+0% [Working]
+            
+Err http://debian.ustc.edu.cn jessie Release.gpg
+  Could not resolve 'debian.ustc.edu.cn'
+0% [Working]
+            
+Err http://debian.ustc.edu.cn jessie-updates Release.gpg
+  Could not resolve 'debian.ustc.edu.cn'
+0% [Working]
+            
+Reading package lists... 0%
+Reading package lists... 0%
+Reading package lists... 1%
+Reading package lists... 35%
+Reading package lists... 55%
+Reading package lists... 55%
+Reading package lists... 72%
+Reading package lists... 94%
+Reading package lists... 94%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 98%
+Reading package lists... 98%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... Done
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie/InRelease  
+W: Failed to fetch http://security.debian.org/dists/jessie/updates/InRelease  
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie-updates/InRelease  
+W: Failed to fetch http://security.debian.org/dists/jessie/updates/Release.gpg  Could not resolve 'security.debian.org'
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie/Release.gpg  Could not resolve 'debian.ustc.edu.cn'
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie-updates/Release.gpg  Could not resolve 'debian.ustc.edu.cn'
+W: Some index files failed to download. They have been ignored, or old ones used instead.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  attr libaio1 libasn1-8-heimdal libfile-copy-recursive-perl
+  libhcrypto4-heimdal libhdb9-heimdal libheimbase1-heimdal libhx509-5-heimdal
+  libkrb5-26-heimdal libldb1 libntdb1 libpython2.7 libroken18-heimdal
+  libtalloc2 libtcl8.6 libtdb1 libtevent0 libtk8.6 libwbclient0
+  libwind0-heimdal libxss1 openbsd-inetd python-crypto python-dnspython
+  python-ldb python-ntdb python-samba python-talloc python-tdb samba-common
+  samba-common-bin samba-dsdb-modules samba-libs samba-vfs-modules tcl-expect
+  tcl8.6 tdb-tools tk8.6 update-inetd
+Use 'apt-get autoremove' to remove them.
+The following extra packages will be installed:
+  powermgmt-base
+Suggested packages:
+  apmd
+The following NEW packages will be installed:
+  hdparm powermgmt-base
+0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+Need to get 111 kB of archives.
+After this operation, 340 kB of additional disk space will be used.
+Err http://debian.ustc.edu.cn/debian/ jessie/main hdparm arm64 9.43-2
+  Could not resolve 'debian.ustc.edu.cn'
+Err http://debian.ustc.edu.cn/debian/ jessie/main powermgmt-base all 1.31+nmu1
+  Could not resolve 'debian.ustc.edu.cn'
+E: Failed to fetch http://debian.ustc.edu.cn/debian/pool/main/h/hdparm/hdparm_9.43-2_arm64.deb  Could not resolve 'debian.ustc.edu.cn'
+E: Failed to fetch http://debian.ustc.edu.cn/debian/pool/main/p/powermgmt-base/powermgmt-base_1.31+nmu1_all.deb  Could not resolve 'debian.ustc.edu.cn'
+E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+=================================================
+(0) Install failed... Retrying after some seconds
+=================================================
+0% [Working]
+            
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+                                                                         
+Err http://debian.ustc.edu.cn jessie InRelease
+  
+                                                                         
+0% [Connecting to security.debian.org]
+                                      
+Err http://debian.ustc.edu.cn jessie-updates InRelease
+  
+0% [Connecting to security.debian.org]
+                                      
+Err http://debian.ustc.edu.cn jessie Release.gpg
+  Could not resolve 'debian.ustc.edu.cn'
+0% [Connecting to security.debian.org]
+                                      
+Err http://debian.ustc.edu.cn jessie-updates Release.gpg
+  Could not resolve 'debian.ustc.edu.cn'
+0% [Connecting to security.debian.org]
+0% [Connecting to security.debian.org]
+0% [Connecting to security.debian.org]
+0% [Connecting to security.debian.org]
+0% [Connecting to security.debian.org]
+0% [Connecting to security.debian.org]
+0% [Connecting to security.debian.org]
+0% [Connecting to security.debian.org]
+0% [Connecting to security.debian.org]
+0% [Connecting to security.debian.org]
+0% [Connecting to security.debian.org]
+0% [Connecting to security.debian.org]
+0% [Connecting to security.debian.org]
+0% [Connecting to security.debian.org]
+0% [Connecting to security.debian.org]
+0% [Connecting to security.debian.org]
+0% [Connecting to security.debian.org]
+0% [Connecting to security.debian.org]
+0% [Connecting to security.debian.org]
+0% [Connecting to security.debian.org]
+0% [Connecting to security.debian.org]
+                                      
+Err http://security.debian.org jessie/updates InRelease
+  
+                                      
+0% [Working]
+            
+Err http://security.debian.org jessie/updates Release.gpg
+  Could not resolve 'security.debian.org'
+0% [Working]
+            
+Reading package lists... 0%
+Reading package lists... 0%
+Reading package lists... 1%
+Reading package lists... 35%
+Reading package lists... 55%
+Reading package lists... 55%
+Reading package lists... 68%
+Reading package lists... 94%
+Reading package lists... 94%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 98%
+Reading package lists... 98%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... Done
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie/InRelease  
+W: Failed to fetch http://security.debian.org/dists/jessie/updates/InRelease  
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie-updates/InRelease  
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie/Release.gpg  Could not resolve 'debian.ustc.edu.cn'
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie-updates/Release.gpg  Could not resolve 'debian.ustc.edu.cn'
+W: Failed to fetch http://security.debian.org/dists/jessie/updates/Release.gpg  Could not resolve 'security.debian.org'
+W: Some index files failed to download. They have been ignored, or old ones used instead.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  attr libaio1 libasn1-8-heimdal libfile-copy-recursive-perl
+  libhcrypto4-heimdal libhdb9-heimdal libheimbase1-heimdal libhx509-5-heimdal
+  libkrb5-26-heimdal libldb1 libntdb1 libpython2.7 libroken18-heimdal
+  libtalloc2 libtcl8.6 libtdb1 libtevent0 libtk8.6 libwbclient0
+  libwind0-heimdal libxss1 openbsd-inetd python-crypto python-dnspython
+  python-ldb python-ntdb python-samba python-talloc python-tdb samba-common
+  samba-common-bin samba-dsdb-modules samba-libs samba-vfs-modules tcl-expect
+  tcl8.6 tdb-tools tk8.6 update-inetd
+Use 'apt-get autoremove' to remove them.
+The following extra packages will be installed:
+  powermgmt-base
+Suggested packages:
+  apmd
+The following NEW packages will be installed:
+  hdparm powermgmt-base
+0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+Need to get 111 kB of archives.
+After this operation, 340 kB of additional disk space will be used.
+Err http://debian.ustc.edu.cn/debian/ jessie/main hdparm arm64 9.43-2
+  Could not resolve 'debian.ustc.edu.cn'
+Err http://debian.ustc.edu.cn/debian/ jessie/main powermgmt-base all 1.31+nmu1
+  Could not resolve 'debian.ustc.edu.cn'
+E: Failed to fetch http://debian.ustc.edu.cn/debian/pool/main/h/hdparm/hdparm_9.43-2_arm64.deb  Could not resolve 'debian.ustc.edu.cn'
+E: Failed to fetch http://debian.ustc.edu.cn/debian/pool/main/p/powermgmt-base/powermgmt-base_1.31+nmu1_all.deb  Could not resolve 'debian.ustc.edu.cn'
+E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+=================================================
+(1) Install failed... Retrying after some seconds
+=================================================
+0% [Working]
+            
+Err http://security.debian.org jessie/updates InRelease
+  
+            
+0% [Connecting to debian.ustc.edu.cn]
+                                     
+Err http://security.debian.org jessie/updates Release.gpg
+  Could not resolve 'security.debian.org'
+0% [Connecting to debian.ustc.edu.cn]
+0% [Connecting to debian.ustc.edu.cn]
+0% [Connecting to debian.ustc.edu.cn]
+0% [Connecting to debian.ustc.edu.cn]
+0% [Connecting to debian.ustc.edu.cn]
+0% [Connecting to debian.ustc.edu.cn]
+0% [Connecting to debian.ustc.edu.cn]
+0% [Connecting to debian.ustc.edu.cn]
+0% [Connecting to debian.ustc.edu.cn]
+0% [Connecting to debian.ustc.edu.cn]
+                                     
+Err http://debian.ustc.edu.cn jessie InRelease
+  
+                                     
+0% [Working]
+            
+Err http://debian.ustc.edu.cn jessie-updates InRelease
+  
+0% [Working]
+            
+Err http://debian.ustc.edu.cn jessie Release.gpg
+  Could not resolve 'debian.ustc.edu.cn'
+0% [Working]
+            
+Err http://debian.ustc.edu.cn jessie-updates Release.gpg
+  Could not resolve 'debian.ustc.edu.cn'
+0% [Working]
+            
+Reading package lists... 0%
+Reading package lists... 0%
+Reading package lists... 1%
+Reading package lists... 35%
+Reading package lists... 55%
+Reading package lists... 55%
+Reading package lists... 73%
+Reading package lists... 94%
+Reading package lists... 94%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 98%
+Reading package lists... 98%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... Done
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie/InRelease  
+W: Failed to fetch http://security.debian.org/dists/jessie/updates/InRelease  
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie-updates/InRelease  
+W: Failed to fetch http://security.debian.org/dists/jessie/updates/Release.gpg  Could not resolve 'security.debian.org'
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie/Release.gpg  Could not resolve 'debian.ustc.edu.cn'
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie-updates/Release.gpg  Could not resolve 'debian.ustc.edu.cn'
+W: Some index files failed to download. They have been ignored, or old ones used instead.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  attr libaio1 libasn1-8-heimdal libfile-copy-recursive-perl
+  libhcrypto4-heimdal libhdb9-heimdal libheimbase1-heimdal libhx509-5-heimdal
+  libkrb5-26-heimdal libldb1 libntdb1 libpython2.7 libroken18-heimdal
+  libtalloc2 libtcl8.6 libtdb1 libtevent0 libtk8.6 libwbclient0
+  libwind0-heimdal libxss1 openbsd-inetd python-crypto python-dnspython
+  python-ldb python-ntdb python-samba python-talloc python-tdb samba-common
+  samba-common-bin samba-dsdb-modules samba-libs samba-vfs-modules tcl-expect
+  tcl8.6 tdb-tools tk8.6 update-inetd
+Use 'apt-get autoremove' to remove them.
+The following extra packages will be installed:
+  powermgmt-base
+Suggested packages:
+  apmd
+The following NEW packages will be installed:
+  hdparm powermgmt-base
+0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+Need to get 111 kB of archives.
+After this operation, 340 kB of additional disk space will be used.
+Err http://debian.ustc.edu.cn/debian/ jessie/main hdparm arm64 9.43-2
+  Could not resolve 'debian.ustc.edu.cn'
+Err http://debian.ustc.edu.cn/debian/ jessie/main powermgmt-base all 1.31+nmu1
+  Could not resolve 'debian.ustc.edu.cn'
+E: Failed to fetch http://debian.ustc.edu.cn/debian/pool/main/h/hdparm/hdparm_9.43-2_arm64.deb  Could not resolve 'debian.ustc.edu.cn'
+E: Failed to fetch http://debian.ustc.edu.cn/debian/pool/main/p/powermgmt-base/powermgmt-base_1.31+nmu1_all.deb  Could not resolve 'debian.ustc.edu.cn'
+E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+=================================================
+(2) Install failed... Retrying after some seconds
+=================================================
+0% [Working]
+            
+Err http://debian.ustc.edu.cn jessie InRelease
+  
+            
+0% [Connecting to security.debian.org]
+                                      
+Err http://debian.ustc.edu.cn jessie-updates InRelease
+  
+0% [Connecting to security.debian.org]
+                                      
+Err http://debian.ustc.edu.cn jessie Release.gpg
+  Could not resolve 'debian.ustc.edu.cn'
+0% [Connecting to security.debian.org]
+                                      
+Err http://debian.ustc.edu.cn jessie-updates Release.gpg
+  Could not resolve 'debian.ustc.edu.cn'
+0% [Connecting to security.debian.org]
+                                      
+Err http://security.debian.org jessie/updates InRelease
+  
+                                      
+0% [Working]
+            
+Err http://security.debian.org jessie/updates Release.gpg
+  Could not resolve 'security.debian.org'
+0% [Working]
+            
+Reading package lists... 0%
+Reading package lists... 0%
+Reading package lists... 1%
+Reading package lists... 35%
+Reading package lists... 55%
+Reading package lists... 55%
+Reading package lists... 72%
+Reading package lists... 94%
+Reading package lists... 94%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 98%
+Reading package lists... 98%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... Done
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie/InRelease  
+W: Failed to fetch http://security.debian.org/dists/jessie/updates/InRelease  
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie-updates/InRelease  
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie/Release.gpg  Could not resolve 'debian.ustc.edu.cn'
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie-updates/Release.gpg  Could not resolve 'debian.ustc.edu.cn'
+W: Failed to fetch http://security.debian.org/dists/jessie/updates/Release.gpg  Could not resolve 'security.debian.org'
+W: Some index files failed to download. They have been ignored, or old ones used instead.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  attr libaio1 libasn1-8-heimdal libfile-copy-recursive-perl
+  libhcrypto4-heimdal libhdb9-heimdal libheimbase1-heimdal libhx509-5-heimdal
+  libkrb5-26-heimdal libldb1 libntdb1 libpython2.7 libroken18-heimdal
+  libtalloc2 libtcl8.6 libtdb1 libtevent0 libtk8.6 libwbclient0
+  libwind0-heimdal libxss1 openbsd-inetd python-crypto python-dnspython
+  python-ldb python-ntdb python-samba python-talloc python-tdb samba-common
+  samba-common-bin samba-dsdb-modules samba-libs samba-vfs-modules tcl-expect
+  tcl8.6 tdb-tools tk8.6 update-inetd
+Use 'apt-get autoremove' to remove them.
+The following extra packages will be installed:
+  powermgmt-base
+Suggested packages:
+  apmd
+The following NEW packages will be installed:
+  hdparm powermgmt-base
+0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+Need to get 111 kB of archives.
+After this operation, 340 kB of additional disk space will be used.
+Err http://debian.ustc.edu.cn/debian/ jessie/main hdparm arm64 9.43-2
+  Could not resolve 'debian.ustc.edu.cn'
+Err http://debian.ustc.edu.cn/debian/ jessie/main powermgmt-base all 1.31+nmu1
+  Could not resolve 'debian.ustc.edu.cn'
+E: Failed to fetch http://debian.ustc.edu.cn/debian/pool/main/h/hdparm/hdparm_9.43-2_arm64.deb  Could not resolve 'debian.ustc.edu.cn'
+E: Failed to fetch http://debian.ustc.edu.cn/debian/pool/main/p/powermgmt-base/powermgmt-base_1.31+nmu1_all.deb  Could not resolve 'debian.ustc.edu.cn'
+E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+=================================================
+(3) Install failed... Retrying after some seconds
+=================================================
+0% [Working]
+            
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+0% [Connecting to debian.ustc.edu.cn] [Connecting to security.debian.org]
+                                                                         
+Err http://debian.ustc.edu.cn jessie InRelease
+  
+                                                                         
+Err http://security.debian.org jessie/updates InRelease
+  
+                                                                         
+0% [Working]
+            
+Err http://debian.ustc.edu.cn jessie-updates InRelease
+  
+0% [Working]
+            
+Err http://security.debian.org jessie/updates Release.gpg
+  Could not resolve 'security.debian.org'
+0% [Working]
+            
+Err http://debian.ustc.edu.cn jessie Release.gpg
+  Could not resolve 'debian.ustc.edu.cn'
+0% [Working]
+            
+Err http://debian.ustc.edu.cn jessie-updates Release.gpg
+  Could not resolve 'debian.ustc.edu.cn'
+0% [Working]
+            
+Reading package lists... 0%
+Reading package lists... 0%
+Reading package lists... 1%
+Reading package lists... 35%
+Reading package lists... 55%
+Reading package lists... 55%
+Reading package lists... 73%
+Reading package lists... 94%
+Reading package lists... 94%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 97%
+Reading package lists... 98%
+Reading package lists... 98%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... 99%
+Reading package lists... Done
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie/InRelease  
+W: Failed to fetch http://security.debian.org/dists/jessie/updates/InRelease  
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie-updates/InRelease  
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie/Release.gpg  Could not resolve 'debian.ustc.edu.cn'
+W: Failed to fetch http://security.debian.org/dists/jessie/updates/Release.gpg  Could not resolve 'security.debian.org'
+W: Failed to fetch http://debian.ustc.edu.cn/debian/dists/jessie-updates/Release.gpg  Could not resolve 'debian.ustc.edu.cn'
+W: Some index files failed to download. They have been ignored, or old ones used instead.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  attr libaio1 libasn1-8-heimdal libfile-copy-recursive-perl
+  libhcrypto4-heimdal libhdb9-heimdal libheimbase1-heimdal libhx509-5-heimdal
+  libkrb5-26-heimdal libldb1 libntdb1 libpython2.7 libroken18-heimdal
+  libtalloc2 libtcl8.6 libtdb1 libtevent0 libtk8.6 libwbclient0
+  libwind0-heimdal libxss1 openbsd-inetd python-crypto python-dnspython
+  python-ldb python-ntdb python-samba python-talloc python-tdb samba-common
+  samba-common-bin samba-dsdb-modules samba-libs samba-vfs-modules tcl-expect
+  tcl8.6 tdb-tools tk8.6 update-inetd
+Use 'apt-get autoremove' to remove them.
+The following extra packages will be installed:
+  powermgmt-base
+Suggested packages:
+  apmd
+The following NEW packages will be installed:
+  hdparm powermgmt-base
+0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+Need to get 111 kB of archives.
+After this operation, 340 kB of additional disk space will be used.
+Err http://debian.ustc.edu.cn/debian/ jessie/main hdparm arm64 9.43-2
+  Could not resolve 'debian.ustc.edu.cn'
+Err http://debian.ustc.edu.cn/debian/ jessie/main powermgmt-base all 1.31+nmu1
+  Could not resolve 'debian.ustc.edu.cn'
+E: Failed to fetch http://debian.ustc.edu.cn/debian/pool/main/h/hdparm/hdparm_9.43-2_arm64.deb  Could not resolve 'debian.ustc.edu.cn'
+E: Failed to fetch http://debian.ustc.edu.cn/debian/pool/main/p/powermgmt-base/powermgmt-base_1.31+nmu1_all.deb  Could not resolve 'debian.ustc.edu.cn'
+E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+<LAVA_TEST_RUNNER>: 0_75c3cacd-ae09-4c89-9fb7-a15f245cef96 installer failed, skipping
+0_75c3cacd-ae09-4c89-9fb7-a15f245cef96-1478743084
+<LAVA_TEST_RUNNER>: calling sync on device
+<LAVA_TEST_RUNNER>: exiting lava-test-runner
+================
+device_read_perf
+================
+Test case                                  Result
+---------------------------------------- --------
+lava-test-shell-install                      FAIL
