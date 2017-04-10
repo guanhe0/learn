@@ -1,0 +1,35 @@
+下载并执行
+https://github.com/open-estuary/packages/blob/master/docker_apps/lamp/setup.sh，
+结果
+root@ubuntu:~# ./setup.sh 
+Failed to start docker.service: Unit docker.service not found.
+./setup.sh: line 8: docker: command not found
+./setup.sh: line 9: docker: command not found
+root@ubuntu:~# cat setup.sh 
+#!/bin/bash
+
+#Step 1: Start docker service
+if [ -z "$(ps -aux | grep docker | grep -v grep)" ] ; then
+        service docker start
+fi
+#Step 2: Download docker images
+docker pull openestuary/apache
+docker pull openestuary/mysql
+root@ubuntu:~#
+
+[docker mongodb]
+系统：Ubuntu(Linux ubuntu 4.9.0 #1 SMP Tue Mar 14 12:04:32 UTC 2017 aarch64 aarch64 aarch64 GNU/Linux)
+硬件：boardserver2 d03
+参考文档 (https://github.com/open-estuary/packages/blob/master/docker_apps/mongodb/MongoDB_Manual.md)
+更新软件源：apt-get update -y
+按照MongoDB_Manual.md文档里执行setup.sh
+运行一个的docker容器：docker run --security-opt seccomp=unconfined -p 27017:27017 --name mongodb -d openestuary/mongodb:3.4
+如果是x86架构的ubuntu系统，安装mongodb客户端：apt-get install -y mongodb-clients
+如果是arm64架构的ubuntu系统，安装mongodb客户端：
+参考http://packages.ubuntu.com/trusty/mongodb-clients 
+打开：http://archive.ubuntu.com/ubuntu/pool/universe/m/mongodb/mongodb_2.4.9-1ubuntu2.dsc
+git下载：git clone git://anonscm.debian.org/collab-maint/mongodb.git
+进入mongo/mongodb-linux-aarch64-ubuntu1604-3.4.2/bin目录(这个是以前版本的)
+如果没有找到，执行find / -name mongo,可以在类似目录找到，为了稳定改成从https://github.com/guanhe0/mongo.git 下载
+执行./mongo <ip_address>:<port>/admin -u mongodb -p Estuary12#$
+docker rm <dockercontainer_id> ［先通过docker stop <dockercontainer_id>停掉running container］
