@@ -1,0 +1,33 @@
+
+xinliang
+documents website :https://tower.im/projects/c4934686b53c44599a7fe0c28c1b6dd9/
+download from website :/home/huawei9/Downloads/SDI-DevCloudQuickStartingGuide-180117-0752-10.pdf
+
+baidu
+http://www.ibm.com/developerworks/cn/cloud/library/1402_chenhy_openstackstorage/
+
+website
+build website : http://124.250.134.52:4201/project/
+liuxl xin3liang
+
+website org
+https://docs.openstack.org/user-guide/
+
+espace 
+ppt
+word
+
+		public	protected
+admin   yes		yes
+guest	no
+
+admin
+Not5afe4Pr0duct!on
+
+
+instance0创建错误
+Error: Failed to perform requested operation on instance "instance0", the instance has an error status: Please try again later [Error: Build of instance 11bc1461-4a49-410f-9f4c-eccf2f3d0384 aborted: Failed to allocate the network(s) with error No fixed IP addresses available for network: 3a164298-e5da-4b03-8d1f-ce87ed5d2097, not rescheduling.]. 
+instance-c1创建错误
+Failed to perform requested operation on instance "instance-c1", the instance has an error status: Please try again later [Error: Build of instance 438122db-56af-4d43-9347-a44370bef275 aborted: Volume resource quota exceeded]. 
+
+

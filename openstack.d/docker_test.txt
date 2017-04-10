@@ -1,0 +1,85 @@
+[docker mariadb]
+系统：Ubuntu(Linux ubuntu 4.9.0 #1 SMP Tue Mar 14 12:04:32 UTC 2017 aarch64 aarch64 aarch64 GNU/Linux)
+硬件：boardserver2 d03 
+参考文档 (https://github.com/open-estuary/packages/blob/master/docker_apps/mariadb/MariaDB_Manual.md)
+apt-get update -y
+按照MariaDB_Manual.md文档里执行setup.sh
+执行docker run -p 3306:3306 --name mariadb -d openestuary/mariadb:latest
+安装mysql客户端
+执行docker ps -a查看数据库状态
+如果STATUS是EXIT的，执行docker start dbname(数据库名字)
+本地链接mariadb数据库 mysql -h 192.168.1.215 -umysql -p -P=32768 (192.168.1.215改成自己单板ip)
+
+[docker redis]
+系统：Ubuntu(Linux ubuntu 4.9.0 #1 SMP Tue Mar 14 12:04:32 UTC 2017 aarch64 aarch64 aarch64 GNU/Linux)
+硬件：boardserver2 d03
+参考文档 (https://github.com/open-estuary/packages/blob/master/docker_apps/redis/Redis_Manual.md)
+更新软件源：apt-get update -y
+按照Redis_Manual.md文档里执行setup.sh
+运行一个的docker容器：docker run -p 6379:6379 --name redis -d openestuary/redis:3.2.4
+安装redis-cli客户端:apt-get install -y redis*
+运行redis-cli连接本地数据库
+docker rm <dockercontainer_id> 先通过docker stop <dockercontainer_id>停掉running container
+
+[docker postgresql]
+系统：Ubuntu(Linux ubuntu 4.9.0 #1 SMP Tue Mar 14 12:04:32 UTC 2017 aarch64 aarch64 aarch64 GNU/Linux)
+硬件：boardserver2 d03
+参考文档 (https://github.com/open-estuary/packages/blob/master/docker_apps/postgresql/PostgreSQL_Manual.md)
+更新软件源：apt-get update -y
+按照PostgreSQL_Manual.md文档里执行setup.sh
+运行一个的docker容器：docker run -p 5432:5432 --name postgresql -d openestuary/postgresql:9.6   (查看容器状态docker ps -a)
+安装postgres客户端：apt-get install -y psql
+连接数据库：psql -h 192.168.1.215 -U postgres -W -p 5432
+docker rm <dockercontainer_id> ［先通过docker stop <dockercontainer_id>停掉running container］
+
+[docker mongodb]
+系统：Ubuntu(Linux ubuntu 4.9.0 #1 SMP Tue Mar 14 12:04:32 UTC 2017 aarch64 aarch64 aarch64 GNU/Linux)
+硬件：boardserver2 d03
+参考文档 (https://github.com/open-estuary/packages/blob/master/docker_apps/mongodb/MongoDB_Manual.md)
+更新软件源：apt-get update -y
+按照MongoDB_Manual.md文档里执行setup.sh
+运行一个的docker容器：docker run --security-opt seccomp=unconfined -p 27017:27017 --name mongodb -d openestuary/mongodb:3.4
+如果是x86架构的ubuntu系统，安装mongodb客户端：apt-get install -y mongodb-clients
+如果是arm64架构的ubuntu系统，安装mongodb客户端：
+参考http://packages.ubuntu.com/trusty/mongodb-clients 
+打开：http://archive.ubuntu.com/ubuntu/pool/universe/m/mongodb/mongodb_2.4.9-1ubuntu2.dsc
+git下载：git clone git://anonscm.debian.org/collab-maint/mongodb.git
+进入mongo/mongodb-linux-aarch64-ubuntu1604-3.4.2/bin目录
+执行./mongo <ip_address>:<port>/admin -u mongodb -p Estuary12#$
+docker rm <dockercontainer_id> ［先通过docker stop <dockercontainer_id>停掉running container］
+
+[docker lamp]
+系统：Ubuntu(Linux ubuntu 4.9.0 #1 SMP Tue Mar 14 12:04:32 UTC 2017 aarch64 aarch64 aarch64 GNU/Linux)
+硬件：boardserver2 d03
+参考文档 (https://github.com/open-estuary/packages/blob/master/docker_apps/lamp/LAMP_Manual.md)
+更新软件源：apt-get update -y
+按照LAMP_Manual.md文档里执行setup.sh
+运行一个的docker容器：docker run -p 80:80 --name lamp-apache -d openestuary/apache (查看容器状态docker ps -a)
+docker rm <dockercontainer_id> ［先通过docker stop <dockercontainer_id>停掉 container］
+参考setup.sh,文档的setup.sh不完善
+##########################
+#Step 1: Install docker firstly
+if [ -z "$(which docker 2>/dev/null)" ]; then
+    INSTALL_CMD=""
+    if [ ! -z "$(which yum 2>/dev/null)" ] ; then
+        INSTALL_CMD="yum"
+    elif [ ! -z "$(which apt-get 2>/dev/null)" ] ; then
+        INSTALL_CMD="apt-get"
+    else
+        echo "Not know how to install docker ..."
+        exit 0
+    fi
+    ${INSTALL_CMD} install -y -q docker docker.io
+fi
+#Step 2: Start docker service
+if [ -z "$(ps -aux | grep docker | grep -v grep)" ] ; then
+    service docker start
+fi
+#Step 3: Try to pull latest mysql docker image
+if [ -z "$(docker images | grep 'openestuary/mysql' | grep 'openestuary/apache' | grep -v grep)" ]  ; then
+    docker pull openestuary/apache
+    docker pull openestuary/mysql
+else
+    echo "MySql docker image has been pulled"
+fi
+##########################
