@@ -30,6 +30,6 @@ root@ubuntu:~#
 打开：http://archive.ubuntu.com/ubuntu/pool/universe/m/mongodb/mongodb_2.4.9-1ubuntu2.dsc
 git下载：git clone git://anonscm.debian.org/collab-maint/mongodb.git
 进入mongo/mongodb-linux-aarch64-ubuntu1604-3.4.2/bin目录(这个是以前版本的)
-如果没有找到，执行find / -name mongo,可以在类似目录找到，为了稳定改成从https://github.com/guanhe0/mongo.git 下载
+如果没有找到，执行find / -name mongo,可以在类似目录找到，为了稳定改成从https://github.com/guanhe0/mongo.git 下载	
 执行./mongo <ip_address>:<port>/admin -u mongodb -p Estuary12#$
 docker rm <dockercontainer_id> ［先通过docker stop <dockercontainer_id>停掉running container］
