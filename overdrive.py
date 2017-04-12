@@ -32,5 +32,5 @@ else:
     install='apt-get'
 os.environ['install']=str(install)
 os.system('echo  $install')
-#os.system("echo install -y tree")
-#os.system("$install install -y tree")
+os.system("echo install -y tree")
+os.system("$install install -y tree")
