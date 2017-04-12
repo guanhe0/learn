@@ -63,6 +63,27 @@ mini-rootfs.cpio.gz 类似
 ## SAS启动grub.cfg
 ```
 以grub.cfg应该和Image同一个目录才有效
+EFI/BOOT/bootaa64.efi
+cd tmp2;tar xf CentOS_ARM64.tar.gz;cd ../tmp3;tar xf Debian_ARM64.tar.gz;cd ../tmp4;tar xf Fedora_ARM64.tar.gz;cd ../tmp5;tar xf OpenSuse_ARM64.tar.gz;cd ../tmp6;tar xf Ubuntu_ARM64.tar.gz
 ```
 
-
+## 参考步骤
+```
+1,从buildserver下载tar.gz,Image.grubaa64.efi等文件到tftp
+2,创建发行版目录并解压文件,
+3，修改grub.cfg
+4，nfs启动测试
+5，sas启动测试
+```
+## 测试项目
+```
+1,cat /proc/cmdline
+2,cat /proc/version
+3,uname -a
+4,df -h
+5,ping www.baidu.com
+6,apt-get update -y
+7,apt-get install -y tree
+8,fdisk -l
+9,mkfs.ext4 /dev/sda6
+```
