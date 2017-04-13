@@ -26,7 +26,7 @@ elif ('Debian' in distro or 'debian' in distro):
     install='apt-get'
 elif ('Fedora' in distro or 'fedora' in distro):
     install='yum'
-elif ('Opensuse' in distro or 'opensuse' in distro):
+elif ('SuSE' in distro or 'suse' in distro):
     install='zypper'
 else:
     install='apt-get'
