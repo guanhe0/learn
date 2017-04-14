@@ -23,11 +23,11 @@ install='apt-get'
 if ('Centos' in distro or 'centos' in distro):
     install='yum'
 elif ('Debian' in distro or 'debian' in distro):
-    install='yum'
+    install='apt-get'
 elif ('Fedora' in distro or 'fedora' in distro):
     install='yum'
-elif ('Opensuse' in distro or 'opensuse' in distro):
-    install='yum'
+elif ('SuSE' in distro or 'suse' in distro):
+    install='zypper'
 else:
     install='apt-get'
 os.environ['install']=str(install)
