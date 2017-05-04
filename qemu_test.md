@@ -12,5 +12,14 @@ img镜像：guanhe@EstBuildSvr1:/home/chenshuangsheng/open-estuary/build/distro
 安装pip后，pip install pexpect
 qemu操作文档步骤：https://github.com/jarsonfang/etesting/blob/develop/source/_posts/kvm.md
 
+###qemu.sh
+[1]git clone https://github.com/luckyxinshidai/test-definitions.git https://github.com/guanhe0/test-definitions-1.git
+cd ./test-definitions
+. ./automated/bin/setenv.sh
 
-
+[2]yum update -y
+[3]yum install -y epel-release
+[4]yum install -y python-pip
+[5]test-runner -h
+[6]pip install -r ${REPO_PATH}/automated/utils/requirements.txt
+[7]pip install pexpect
