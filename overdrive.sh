@@ -1,5 +1,4 @@
 #!/bin/bash
-set -x
 source common/lib.sh
 cat /proc/cmdline
 cat /proc/version
