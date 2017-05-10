@@ -15,6 +15,20 @@ else
     distro="ubuntu"
 fi
 
+case $distro in
+    "ubuntu"|"debian")
+    install_commands='apt-get install -y'
+    ;;
+    "opensuse")
+    install_commands="zypper -n instal"  
+    ;;
+    "centos")
+    install_commands="yum install -y"
+    ;;
+    "fedora")
+    install_commands="dnf install -y"
+    ;;
+esac
 
 
 
