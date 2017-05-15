@@ -20,7 +20,7 @@ case $distro in
     install_commands='apt-get install -y'
     ;;
     "opensuse")
-    install_commands="zypper -n instal"  
+    install_commands="zypper -n install"  
     ;;
     "centos")
     install_commands="yum install -y"

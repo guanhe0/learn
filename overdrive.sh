@@ -30,6 +30,7 @@ else
 fi
 echo "mkfs.ext4 /dev/sda6" >> tmp.txt
 mkfs.ext4 /dev/sda6
+<<<<<<< HEAD
 if [ $? -eq 0 ];then
    echo "[OK]" >> tmp.txt
 else
@@ -42,3 +43,6 @@ if [ $? -eq 0 ];then
 else
    echo "[NO]" >> tmp.txt
 fi
+=======
+$install_commands  tree
+>>>>>>> 69c607dd8824c9210a41d82ebd60f8c2d21a7995
