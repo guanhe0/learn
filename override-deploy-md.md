@@ -18,13 +18,12 @@ board_connect 启动会遇到
 ```
 ser2net port 20050 device /dev/ttyUSB0 [115200 N81] (Debian GNU/Linux)，
 ```
-很久，如果时间过长，按ctr + ] 再按q退出，重新board_reboot ,board_connect，直到出现
+很久，如果时间超过5分钟，按ctr + ] 再按q退出，重新board_reboot ,board_connect，直到出现
 ```
 boot firware ***, 
 ```
-如果已经进入了系统，board_reboot不起作用，但是board_connect后按回车会进入系统，这是因为bmc没有重新上电，联系姚岚处理
-这里会花2-3分钟，出现跳转的时候会提示按 Delete而不是数字键的Del，按下出现bios界面，后面按Deploy_Manual.overdrive.md操作
-
+这里会等待2-3分钟，出现跳转的时候会提示按 Delete而不是数字键的Del，按下出现bios界面，后面按Deploy_Manual.overdrive.md操作
+(如果已经进入了系统，board_reboot不起作用，但是board_connect后按回车会进入系统，这是因为bmc没有重新上电)
 ***
 ## grub.cfg 配置部分
 ```
@@ -36,7 +35,7 @@ grub.cfg 里set root=(tftp,194.168.1.107)
 在grub.cfg里的/Image  对应/home/hisilicon/ftp/Image
 mini-rootfs.cpio.gz 类似
 
-在已经启动的系统里通过reboot重启，不会重新加载grub.cfg
+(在已经启动的系统里通过reboot重启，不会重新加载grub.cfg)
 ````
 ***
 ## (SAS)启动部分
@@ -50,7 +49,7 @@ mini-rootfs.cpio.gz 类似
 ```
 
 ```
-如果是选择硬盘启动，到grub之后，在Save and Exit 选择UEFI build in shell ,就可以了
+如果是选择硬盘启动，到grub之后，在Save and Exit 选择UEFI build in shell ,再回车就可以了
 ```
 ## 文件部署需要的文件来源
 部署系统的文件比如(v3.0-rc0)可以从下面去找
@@ -62,9 +61,8 @@ mini-rootfs.cpio.gz 类似
 
 ## SAS启动grub.cfg
 ```
-以grub.cfg应该和Image同一个目录才有效
+grub.cfg应该和Image同一个目录才有效
 EFI/BOOT/bootaa64.efi
-cd tmp2;tar xf CentOS_ARM64.tar.gz;cd ../tmp3;tar xf Debian_ARM64.tar.gz;cd ../tmp4;tar xf Fedora_ARM64.tar.gz;cd ../tmp5;tar xf OpenSuse_ARM64.tar.gz;cd ../tmp6;tar xf Ubuntu_ARM64.tar.gz
 ```
 
 ## 参考步骤
